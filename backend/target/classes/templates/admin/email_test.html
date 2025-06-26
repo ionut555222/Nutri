@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Test - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/admin">
+                                <i class="fas fa-home"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white active" href="/admin/email-test">
+                                <i class="fas fa-envelope"></i> Email Test
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/admin/ai-mail">
+                                <i class="fas fa-robot"></i> AI Email Marketing
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2"><i class="fas fa-envelope text-primary"></i> Email System Test</h1>
+                </div>
+
+                <!-- Test Email Form -->
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-paper-plane"></i> Send Test Email</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="testEmailForm">
+                                    <div class="mb-3">
+                                        <label for="recipientEmail" class="form-label">Recipient Email</label>
+                                        <input type="email" class="form-control" id="recipientEmail" 
+                                               placeholder="Enter recipient email address" required>
+                                        <div class="form-text">Enter the email address where you want to send the test email</div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="testSubject" class="form-label">Subject Line</label>
+                                        <input type="text" class="form-control" id="testSubject" 
+                                               value="🛍️ Test Email from Your Online Shop" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="testMessage" class="form-label">Message</label>
+                                        <textarea class="form-control" id="testMessage" rows="8" required>Dear Valued Customer,
+
+This is a test email to verify that our email system is working correctly! 🎉
+
+🌟 Premium quality products sourced from trusted suppliers
+🚚 Fast, reliable delivery
+💬 AI-powered customer support
+🎯 Personalized recommendations just for you
+
+If you received this email, it means our email marketing system is ready to send real campaigns to customers!
+
+Best regards,
+The Online Shop Team
+
+This is a test email - you can safely ignore it.</textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i> Send Test Email
+                                    </button>
+                                </form>
+                                
+                                <div id="emailResult" class="mt-3" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fas fa-info-circle"></i> Email Configuration Status</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info">
+                                    <strong>Current Configuration:</strong><br>
+                                    📧 Provider: Gmail SMTP<br>
+                                    🔧 Host: smtp.gmail.com<br>
+                                    📧 From: onlineshoptest8@gmail.com
+                                </div>
+                                
+                                <h6>How to Test:</h6>
+                                <ol class="small">
+                                    <li>Enter your email address</li>
+                                    <li>Click "Send Test Email"</li>
+                                    <li>Check your inbox (and spam folder)</li>
+                                    <li>If email arrives, system is working!</li>
+                                </ol>
+                                
+                                <div class="alert alert-warning small">
+                                    <strong>Note:</strong> Make sure your Gmail app password is correctly configured in application.properties
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('testEmailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('recipientEmail').value;
+            const subject = document.getElementById('testSubject').value;
+            const message = document.getElementById('testMessage').value;
+            const resultDiv = document.getElementById('emailResult');
+            
+            // Show loading
+            resultDiv.innerHTML = '<div class="alert alert-info"><i class="fas fa-spinner fa-spin"></i> Sending test email...</div>';
+            resultDiv.style.display = 'block';
+            
+            // Send email via simple API call
+            fetch('/admin/api/send-test-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    to: email,
+                    subject: subject,
+                    text: message
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Test email sent successfully! Check your inbox.</div>';
+                } else {
+                    throw new Error('Failed to send email');
+                }
+            })
+            .catch(error => {
+                resultDiv.innerHTML = '<div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> Failed to send email. Check your email configuration.</div>';
+            });
+        });
+    </script>
+</body>
+</html> 

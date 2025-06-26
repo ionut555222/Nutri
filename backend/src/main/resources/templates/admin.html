@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f2f2f7;
+            color: #1d1d1f;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #d1d1d6;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e5e5ea;
+        }
+        th {
+            font-weight: 600;
+            background-color: #f9f9f9;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Add New Category</h2>
+        <form id="addCategoryForm">
+            <input type="text" id="categoryName" name="categoryName" placeholder="Category Name" required>
+            <input type="submit" value="Add Category">
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Add New Product</h2>
+        <form id="addFruitForm">
+            <input type="text" id="name" name="name" placeholder="Product Name" required>
+            <input type="text" id="price" name="price" placeholder="Price" required>
+            <select id="category" name="category" required>
+                <option value="">Select a Category</option>
+            </select>
+            <input type="submit" value="Add Product">
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Existing Categories</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody id="categoriesTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Existing Products</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody id="fruitsTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Existing JavaScript remains the same
+    document.getElementById('addCategoryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const categoryName = document.getElementById('categoryName').value;
+        fetch('/categories', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: categoryName }),
+        })
+        .then(() => {
+            loadCategories();
+            document.getElementById('categoryName').value = '';
+        });
+    });
+
+    function loadCategories() {
+        fetch('/categories')
+            .then(response => response.json())
+            .then(data => {
+                const categoriesTableBody = document.getElementById('categoriesTableBody');
+                const categorySelect = document.getElementById('category');
+                categoriesTableBody.innerHTML = '';
+                // Keep the default "Select" option
+                const firstOption = categorySelect.firstElementChild;
+                categorySelect.innerHTML = '';
+                categorySelect.appendChild(firstOption);
+
+                data.forEach(category => {
+                    let row = categoriesTableBody.insertRow();
+                    row.insertCell(0).innerHTML = category.id;
+                    row.insertCell(1).innerHTML = category.name;
+
+                    let option = document.createElement('option');
+                    option.value = category.id;
+                    option.text = category.name;
+                    categorySelect.appendChild(option);
+                });
+            });
+    }
+
+    document.getElementById('addFruitForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const price = parseFloat(document.getElementById('price').value);
+        const categoryId = document.getElementById('category').value;
+
+        const fruitData = {
+            name: name,
+            price: price,
+            category: { id: categoryId }
+        };
+
+        fetch('/fruits', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(fruitData),
+        })
+        .then(() => {
+            loadFruits();
+            document.getElementById('addFruitForm').reset();
+        });
+    });
+
+    function loadFruits() {
+        fetch('/fruits')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('fruitsTableBody');
+                tableBody.innerHTML = '';
+                data.forEach(fruit => {
+                    let row = tableBody.insertRow();
+                    row.insertCell(0).innerHTML = fruit.id;
+                    row.insertCell(1).innerHTML = fruit.name;
+                    row.insertCell(2).innerHTML = '$' + fruit.price.toFixed(2);
+                    row.insertCell(3).innerHTML = fruit.category ? fruit.category.name : 'N/A';
+                });
+            });
+    }
+
+    window.onload = function() {
+        loadCategories();
+        loadFruits();
+    };
+</script>
+
+</body>
+</html> 

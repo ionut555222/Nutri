@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Profile Detail - Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .profile-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .profile-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .section-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .metric-label {
+            color: #6c757d;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .order-table th, .order-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .segment-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .segment-premium { background: #ffd700; color: #333; }
+        .segment-regular { background: #28a745; color: white; }
+        .segment-budget { background: #007bff; color: white; }
+        .segment-new { background: #fd7e14; color: white; }
+        .risk-indicator {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .risk-high { background: #dc3545; color: white; }
+        .risk-medium { background: #ffc107; color: #212529; }
+        .risk-low { background: #28a745; color: white; }
+        .ai-insights {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .category-spending {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .category-chip {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-warning { background: #ffc107; color: #212529; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .email-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1 th:text="${customer.username}">Customer Name</h1>
+                    <p th:text="${customer.email}">customer@example.com</p>
+                </div>
+                <div style="text-align: right;">
+                    <div th:class="'segment-badge segment-' + ${#strings.toLowerCase(profile.customerSegment)}" 
+                         th:text="${profile.customerSegment}">Segment</div>
+                    <div style="margin-top: 10px;">
+                        <span th:class="'risk-indicator risk-' + ${#strings.toLowerCase(profile.riskLevel)}" 
+                              th:text="${profile.riskLevel + ' Risk'}">Risk Level</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions" style="margin-bottom: 30px;">
+            <a href="/admin/customer-profiles" class="btn btn-secondary">← Back to Profiles</a>
+            <form th:action="@{/admin/customer-profiles/update/{id}(id=${profile.id})}" method="post" style="display: inline;">
+                <button type="submit" class="btn btn-warning">🔄 Update Profile</button>
+            </form>
+        </div>
+        
+        <div class="profile-sections">
+            <!-- Customer Metrics -->
+            <div class="section-card">
+                <h3>📊 Customer Metrics</h3>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <div class="metric-value" th:text="${profile.totalOrders}">0</div>
+                        <div class="metric-label">Total Orders</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">$<span th:text="${#numbers.formatDecimal(profile.totalSpent, 1, 2)}">0.00</span></div>
+                        <div class="metric-label">Total Spent</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">$<span th:text="${#numbers.formatDecimal(profile.averageOrderValue, 1, 2)}">0.00</span></div>
+                        <div class="metric-label">Avg Order Value</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" th:text="${#numbers.formatDecimal(profile.orderFrequencyDays, 1, 1)}">0.0</div>
+                        <div class="metric-label">Days Between Orders</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p><strong>Price Sensitivity:</strong> <span th:text="${profile.priceSensitivity}">Medium</span></p>
+                    <p><strong>First Order:</strong> <span th:text="${#temporals.format(profile.firstOrderDate, 'yyyy-MM-dd HH:mm')}">Date</span></p>
+                    <p><strong>Last Order:</strong> <span th:text="${#temporals.format(profile.lastOrderDate, 'yyyy-MM-dd HH:mm')}">Date</span></p>
+                    <p><strong>Profile Updated:</strong> <span th:text="${#temporals.format(profile.profileUpdatedAt, 'yyyy-MM-dd HH:mm')}">Date</span></p>
+                </div>
+            </div>
+            
+            <!-- Email Engagement -->
+            <div class="section-card">
+                <h3>📧 Email Engagement</h3>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <div class="metric-value" th:text="${profile.emailsSent}">0</div>
+                        <div class="metric-label">Emails Sent</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" th:text="${profile.emailsOpened}">0</div>
+                        <div class="metric-label">Emails Opened</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" th:text="${profile.emailsClicked}">0</div>
+                        <div class="metric-label">Emails Clicked</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value" th:text="${#numbers.formatDecimal(profile.emailOpenRate, 1, 1)}">0.0</div>
+                        <div class="metric-label">Open Rate %</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p><strong>Last Email Sent:</strong> 
+                       <span th:text="${profile.lastEmailSent != null ? #temporals.format(profile.lastEmailSent, 'yyyy-MM-dd HH:mm') : 'Never'}">Date</span>
+                    </p>
+                    <p><strong>Opt-out Status:</strong> 
+                       <span th:text="${profile.optOut ? '❌ Opted Out' : '✅ Subscribed'}" 
+                             th:style="${profile.optOut ? 'color: red; font-weight: bold;' : 'color: green; font-weight: bold;'}">Status</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Preferences & Behavior -->
+            <div class="section-card">
+                <h3>🎯 Preferences & Behavior</h3>
+                
+                <div th:if="${profile.favoriteCategories != null and !#lists.isEmpty(profile.favoriteCategories)}">
+                    <h4>Favorite Categories</h4>
+                    <div class="category-spending">
+                        <span th:each="category : ${profile.favoriteCategories}" 
+                              class="category-chip" th:text="${category}">Category</span>
+                    </div>
+                </div>
+                
+                <div th:if="${profile.categorySpending != null and !profile.categorySpending.isEmpty()}" style="margin-top: 20px;">
+                    <h4>Category Spending</h4>
+                    <div th:each="entry : ${profile.categorySpending}">
+                        <p><strong th:text="${entry.key}">Category</strong>: $<span th:text="${#numbers.formatDecimal(entry.value, 1, 2)}">0.00</span></p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p><strong>Seasonal Preferences:</strong> <span th:text="${profile.seasonalPreferences ?: 'Not analyzed'}">Preferences</span></p>
+                    <p><strong>Communication Time:</strong> <span th:text="${profile.preferredCommunicationTime ?: 'Any time'}">Time</span></p>
+                </div>
+            </div>
+            
+            <!-- AI Insights -->
+            <div class="section-card">
+                <h3>🤖 AI Insights</h3>
+                <div class="ai-insights" th:if="${profile.aiPersonalityProfile != null}">
+                    <h4>Personality Profile</h4>
+                    <p th:text="${profile.aiPersonalityProfile}">AI-generated personality insights</p>
+                </div>
+                <div th:unless="${profile.aiPersonalityProfile != null}">
+                    <p>AI insights not yet generated. Update the profile to generate AI analysis.</p>
+                </div>
+            </div>
+            
+            <!-- Order History -->
+            <div class="section-card full-width">
+                <h3>🛒 Order History</h3>
+                <table class="order-table" th:if="${orders != null and !#lists.isEmpty(orders)}">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Items</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="order : ${orders}">
+                            <td th:text="${order.id}">1</td>
+                            <td th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd HH:mm')}">Date</td>
+                            <td>$<span th:text="${#numbers.formatDecimal(order.totalAmount, 1, 2)}">0.00</span></td>
+                            <td>
+                                <span th:text="${order.fulfilled ? '✅ Fulfilled' : '⏳ Pending'}"
+                                      th:style="${order.fulfilled ? 'color: green;' : 'color: orange;'}">Status</span>
+                            </td>
+                            <td>
+                                <span th:text="${#lists.size(order.orderItems)}">0</span> items
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p th:unless="${orders != null and !#lists.isEmpty(orders)}">No orders found.</p>
+            </div>
+            
+            <!-- Personalized Email Section -->
+            <div class="section-card full-width">
+                <h3>📬 Send Personalized Email</h3>
+                <div class="email-form">
+                    <form th:action="@{/admin/mail/send-personalized}" method="post">
+                        <input type="hidden" name="userId" th:value="${user.id}">
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label for="campaignType">Email Type:</label>
+                            <select name="campaignType" id="campaignType" required>
+                                <option value="PROMOTIONAL">Promotional</option>
+                                <option value="WELCOME">Welcome</option>
+                                <option value="RE_ENGAGEMENT">Re-engagement</option>
+                                <option value="SEASONAL">Seasonal</option>
+                                <option value="PERSONALIZED">Personalized</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">🚀 Send AI-Personalized Email</button>
+                    </form>
+                    
+                    <p style="margin-top: 15px; font-size: 12px; color: #6c757d;">
+                        This will generate and send a personalized email based on this customer's profile, 
+                        purchase history, and AI-analyzed preferences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

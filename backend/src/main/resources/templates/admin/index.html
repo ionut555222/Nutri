@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .panel {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: 600;
+        }
+        .nav-buttons {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        .nav-button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .nav-button:hover {
+            background-color: #005ecb;
+        }
+        
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .nav-button {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div style="text-align: right; margin-bottom: 20px;">
+            <a href="/admin/logout" style="color: #ff3b30; text-decoration: none; font-size: 0.9em;">🚪 Logout</a>
+        </div>
+        <h1>Admin Dashboard</h1>
+        <div class="nav-buttons">
+            <a href="/admin/groceries" class="nav-button">Manage Groceries &amp; Unfulfilled Orders</a>
+            <a href="/admin/orders/all" class="nav-button">Complete Order History</a>
+            <a href="/admin/orders/fulfilled" class="nav-button">Fulfilled Orders Only</a>
+            <a href="/admin/categories" class="nav-button">Manage Categories</a>
+            <a href="/admin/customers" class="nav-button" style="background-color: #34c759;">👥 Customer Management</a>
+            <a href="/admin/customer-profiles" class="nav-button" style="background-color: #17a2b8;">📊 Customer Profiles</a>
+            <a href="/admin/analytics" class="nav-button" style="background-color: #5856d6;">📊 Business Analytics Dashboard</a>
+            <a href="/admin/email-campaigns" class="nav-button" style="background-color: #ff9500;">📧 AI Email Marketing</a>
+            <a href="/admin/email-test" class="nav-button" style="background-color: #17a2b8;">✉️ Email Test</a>
+            <a href="/admin/mail/ai" class="nav-button" style="background-color: #af52de;">🤖 AI Quick Email</a>
+            <a href="/admin/mail" class="nav-button">📬 Mail Administration</a>
+            <a href="/admin/coupons" class="nav-button" style="background-color: #fd7e14;">🎫 Coupon Management</a>
+            <a href="/admin/gdpr-compliance" class="nav-button" style="background-color: #28a745;">🛡️ GDPR Compliance</a>
+            <!-- Admin Only Features -->
+            <div sec:authorize="hasRole('ADMIN')" style="display: contents;">
+                <a href="/admin/users" class="nav-button" style="background-color: #ff3b30;">👑 Manage Users (Admin Only)</a>
+            </div>
+            <!-- Role Information -->
+            <div style="margin-top: 20px; padding: 15px; background-color: rgba(0,122,255,0.1); border-radius: 8px; font-size: 0.9em;">
+                <span sec:authorize="hasRole('ADMIN')" style="color: #ff3b30; font-weight: bold;">🔑 Administrator Access</span>
+                <span sec:authorize="hasRole('EMPLOYEE') and !hasRole('ADMIN')" style="color: #007aff; font-weight: bold;">👥 Employee Access</span>
+                <br><small>Some features may be restricted based on your role.</small>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

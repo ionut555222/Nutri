@@ -1,0 +1,664 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.example:project3 >------------------------
+[INFO] Building project3 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.4:run (default-cli) > test-compile @ project3 >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ project3 ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 32 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ project3 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ project3 ---
+[INFO] skip non existing resourceDirectory /Users/ionutpopescu/Desktop/workinstate1/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ project3 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot:3.2.4:run (default-cli) < test-compile @ project3 <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.4:run (default-cli) @ project3 ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.2.4)[0;39m
+
+[2m2025-06-24T23:04:51.032+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m Starting Project3Application using Java 23.0.2 with PID 12494 (/Users/ionutpopescu/Desktop/workinstate1/backend/target/classes started by ionutpopescu in /Users/ionutpopescu/Desktop/workinstate1/backend)
+[2m2025-06-24T23:04:51.033+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m No active profile set, falling back to 1 default profile: "default"
+[2m2025-06-24T23:04:51.284+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2m2025-06-24T23:04:51.317+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 30 ms. Found 15 JPA repository interfaces.
+[2m2025-06-24T23:04:51.510+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port 8080 (http)
+[2m2025-06-24T23:04:51.515+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardService  [0;39m [2m:[0;39m Starting service [Tomcat]
+[2m2025-06-24T23:04:51.515+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardEngine   [0;39m [2m:[0;39m Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2m2025-06-24T23:04:51.536+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2025-06-24T23:04:51.536+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 485 ms
+[2m2025-06-24T23:04:51.584+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.hibernate.jpa.internal.util.LogHelper [0;39m [2m:[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+[2m2025-06-24T23:04:51.600+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.Version                   [0;39m [2m:[0;39m HHH000412: Hibernate ORM core version 6.4.4.Final
+[2m2025-06-24T23:04:51.610+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.c.internal.RegionFactoryInitiator   [0;39m [2m:[0;39m HHH000026: Second-level cache disabled
+[2m2025-06-24T23:04:51.691+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.o.j.p.SpringPersistenceUnitInfo     [0;39m [2m:[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
+[2m2025-06-24T23:04:51.702+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Starting...
+[2m2025-06-24T23:04:51.748+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.pool.HikariPool       [0;39m [2m:[0;39m HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3dc82e6a
+[2m2025-06-24T23:04:51.748+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Start completed.
+[2m2025-06-24T23:04:51.765+03:00[0;39m [33m WARN[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.orm.deprecation           [0;39m [2m:[0;39m HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2m2025-06-24T23:04:52.235+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.e.t.j.p.i.JtaPlatformInitiator      [0;39m [2m:[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table if exists campaign_target_categories 
+       drop constraint if exists FKo8jnkctieit4xh1544l990p7q
+Hibernate: 
+    alter table if exists chat_message 
+       drop constraint if exists FK3vttdrltdhmod31anmq4pk75c
+Hibernate: 
+    alter table if exists customer_category_spending 
+       drop constraint if exists FK41nv896ujfbfonwfglu8rjvyu
+Hibernate: 
+    alter table if exists customer_favorite_categories 
+       drop constraint if exists FKm41btpq5b1lf0vvh8fi4wvfpr
+Hibernate: 
+    alter table if exists customer_profiles 
+       drop constraint if exists FKnjy1dugyof18fa21tu22fu98j
+Hibernate: 
+    alter table if exists delivery_addresses 
+       drop constraint if exists FK703ocx98yak3xear9i4a7p6m5
+Hibernate: 
+    alter table if exists fruit 
+       drop constraint if exists FKat5cmawo74etgjcrvxlpmh3w9
+Hibernate: 
+    alter table if exists order_items 
+       drop constraint if exists FK12vejn7ui8n48rg4cd6xwct9
+Hibernate: 
+    alter table if exists order_items 
+       drop constraint if exists FKbioxgbv59vetrxe0ejfubep1w
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKn1d1gkxckw648m2n2d5gx0yx5
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKpxtb8awmi0dk6smoh2vp1litg
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKlbsosv99nbgd12pnow9lpms5o
+Hibernate: 
+    alter table if exists preferred_offer_types 
+       drop constraint if exists FKe61iobpj3lujbcxp6l04ugcwu
+Hibernate: 
+    alter table if exists staff_roles 
+       drop constraint if exists FKpw36v917phegjhfo1vdvx3wrr
+Hibernate: 
+    alter table if exists staff_roles 
+       drop constraint if exists FK4fjh6g0dnwets6e6c949nbvr2
+Hibernate: 
+    alter table if exists user_roles 
+       drop constraint if exists FKh8ciramu9cc9q3qcqiv4ue8a6
+Hibernate: 
+    alter table if exists user_roles 
+       drop constraint if exists FKhfh9dx7w3ubf1co1vdev94g3f
+Hibernate: 
+    drop table if exists campaign_target_categories cascade
+Hibernate: 
+    drop table if exists category cascade
+Hibernate: 
+    drop table if exists chat_message cascade
+Hibernate: 
+    drop table if exists coupons cascade
+Hibernate: 
+    drop table if exists customer_category_spending cascade
+Hibernate: 
+    drop table if exists customer_favorite_categories cascade
+Hibernate: 
+    drop table if exists customer_profiles cascade
+Hibernate: 
+    drop table if exists customers cascade
+Hibernate: 
+    drop table if exists delivery_addresses cascade
+Hibernate: 
+    drop table if exists delivery_zones cascade
+Hibernate: 
+    drop table if exists email_campaigns cascade
+Hibernate: 
+    drop table if exists fruit cascade
+Hibernate: 
+    drop table if exists negotiation_profiles cascade
+Hibernate: 
+    drop table if exists order_items cascade
+Hibernate: 
+    drop table if exists orders cascade
+Hibernate: 
+    drop table if exists preferred_offer_types cascade
+Hibernate: 
+    drop table if exists roles cascade
+Hibernate: 
+    drop table if exists staff_members cascade
+Hibernate: 
+    drop table if exists staff_roles cascade
+Hibernate: 
+    drop table if exists user_roles cascade
+Hibernate: 
+    drop table if exists users cascade
+Hibernate: 
+    create table campaign_target_categories (
+        campaign_id bigint not null,
+        category_name varchar(255)
+    )
+Hibernate: 
+    create table category (
+        id bigserial not null,
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table chat_message (
+        customer_id bigint,
+        id bigserial not null,
+        timestamp timestamp(6),
+        content TEXT,
+        sender varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table coupons (
+        current_uses integer,
+        discount_value numeric(19,2),
+        is_active boolean,
+        max_uses integer,
+        minimum_order_value numeric(19,2),
+        created_at timestamp(6),
+        customer_id bigint,
+        expiration_date timestamp(6),
+        id bigserial not null,
+        used_at timestamp(6),
+        applicable_categories varchar(255),
+        coupon_code varchar(255) not null unique,
+        coupon_type varchar(255) check (coupon_type in ('PERCENTAGE','FIXED_AMOUNT','FREE_SHIPPING','BOGO')),
+        generated_by varchar(255) check (generated_by in ('AI_NEGOTIATION','MANUAL_ADMIN','EMAIL_CAMPAIGN','LOYALTY_REWARD','WELCOME_BONUS')),
+        restrictions TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table customer_category_spending (
+        amount_spent numeric(38,2),
+        profile_id bigint not null,
+        category_name varchar(255) not null,
+        primary key (profile_id, category_name)
+    )
+Hibernate: 
+    create table customer_favorite_categories (
+        profile_id bigint not null,
+        category_name varchar(255)
+    )
+Hibernate: 
+    create table customer_profiles (
+        average_order_value numeric(19,2),
+        eligible_for_automatic_discounts boolean,
+        emails_clicked integer,
+        emails_opened integer,
+        emails_sent integer,
+        max_discount_percentage numeric(5,2),
+        monthly_negotiation_count integer,
+        negotiation_attempts integer,
+        opt_out boolean,
+        order_frequency_days float(53),
+        successful_negotiations integer,
+        total_orders integer,
+        total_savings_from_negotiations numeric(19,2),
+        total_spent numeric(19,2),
+        customer_id bigint not null unique,
+        first_order_date timestamp(6),
+        id bigserial not null,
+        last_email_sent timestamp(6),
+        last_monthly_reset timestamp(6),
+        last_negotiation_date timestamp(6),
+        last_order_date timestamp(6),
+        profile_created_at timestamp(6),
+        profile_updated_at timestamp(6),
+        ai_personality_profile TEXT,
+        customer_segment varchar(255),
+        negotiation_behavior varchar(255),
+        negotiation_tier varchar(255),
+        preferred_communication_time varchar(255),
+        price_sensitivity varchar(255),
+        risk_level varchar(255),
+        seasonal_preferences TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table customers (
+        analytics_consent boolean,
+        data_retention_period_months integer,
+        email_verified boolean,
+        gdpr_deleted boolean,
+        is_active boolean,
+        marketing_consent boolean,
+        profiling_consent boolean,
+        consent_date timestamp(6),
+        consent_withdrawn_date timestamp(6),
+        created_at timestamp(6),
+        date_of_birth timestamp(6),
+        deletion_date timestamp(6),
+        id bigserial not null,
+        last_data_export_date timestamp(6),
+        last_login timestamp(6),
+        privacy_policy_accepted_date timestamp(6),
+        email varchar(255) not null unique,
+        first_name varchar(255),
+        last_name varchar(255),
+        password varchar(255) not null,
+        phone_number varchar(255),
+        privacy_policy_version varchar(255),
+        username varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table delivery_addresses (
+        delivery_difficulty_score integer,
+        floor_number integer,
+        has_elevator boolean,
+        is_default boolean,
+        is_geocoded boolean,
+        is_residential boolean,
+        is_validated boolean,
+        latitude float(53),
+        longitude float(53),
+        requires_signature boolean,
+        created_at timestamp(6),
+        customer_id bigint,
+        id bigserial not null,
+        last_validated_at timestamp(6),
+        updated_at timestamp(6),
+        delivery_instructions varchar(500),
+        access_code varchar(255),
+        address_nickname varchar(255),
+        apartment_unit varchar(255),
+        city varchar(255) not null,
+        contact_phone varchar(255),
+        country varchar(255) not null,
+        formatted_address varchar(255),
+        state_province varchar(255),
+        street_address varchar(255) not null,
+        zip_code varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table delivery_zones (
+        base_delivery_cost numeric(10,2),
+        base_delivery_hours integer,
+        daily_capacity integer,
+        delivery_days_mask integer,
+        delivery_end_time time(6),
+        delivery_start_time time(6),
+        express_delivery_cost numeric(10,2),
+        is_active boolean,
+        max_delivery_hours integer,
+        max_distance_km float(53),
+        min_delivery_hours integer,
+        premium_delivery_cost numeric(10,2),
+        priority_order integer,
+        weather_impact_factor float(53),
+        id bigserial not null,
+        city_names varchar(255),
+        description varchar(255) not null,
+        name varchar(255) not null,
+        zip_codes varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table email_campaigns (
+        ai_generated boolean,
+        emails_clicked integer,
+        emails_delivered integer,
+        emails_opened integer,
+        emails_sent integer,
+        min_days_since_last_email integer,
+        personalization_enabled boolean,
+        recipients_count integer,
+        respect_opt_out boolean,
+        unsubscribes integer,
+        created_at timestamp(6),
+        id bigserial not null,
+        scheduled_date timestamp(6),
+        sent_at timestamp(6),
+        updated_at timestamp(6),
+        campaign_name varchar(255) not null,
+        campaign_type varchar(255),
+        content_template TEXT,
+        created_by varchar(255),
+        status varchar(255),
+        subject_template TEXT,
+        target_segment varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table fruit (
+        price numeric(38,2),
+        stock integer,
+        category_id bigint,
+        id bigserial not null,
+        description varchar(255),
+        name varchar(255),
+        unit varchar(255) check (unit in ('KG','PIECE','PACK','DOZEN','LITER','GRAM','POUND')),
+        primary key (id)
+    )
+Hibernate: 
+    create table negotiation_profiles (
+        average_discount_requested numeric(5,2),
+        blocked_from_negotiation boolean,
+        bundle_preference_score numeric(3,2),
+        consecutive_acceptances integer,
+        consecutive_rejections integer,
+        loyalty_influence_factor numeric(3,2),
+        max_negotiations_per_month integer,
+        negotiation_success_rate numeric(5,2),
+        price_anchor_sensitivity numeric(3,2),
+        responds_to_urgency boolean,
+        block_until_date timestamp(6),
+        customer_id bigint not null,
+        id bigserial not null,
+        profile_created_at timestamp(6),
+        profile_updated_at timestamp(6),
+        block_reason varchar(255),
+        last_negotiation_outcome varchar(255),
+        negotiation_style varchar(255),
+        typical_negotiation_time varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table order_items (
+        price numeric(38,2),
+        quantity integer not null,
+        fruit_id bigint not null,
+        id bigserial not null,
+        order_id bigint not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table orders (
+        discount_amount numeric(38,2),
+        fulfilled boolean not null,
+        original_amount numeric(38,2),
+        total_amount numeric(38,2),
+        coupon_id bigint,
+        customer_id bigint not null,
+        delivery_date timestamp(6),
+        delivery_zone_id bigint,
+        fulfilled_date timestamp(6),
+        id bigserial not null,
+        order_date timestamp(6),
+        coupon_code varchar(255),
+        order_notes varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table preferred_offer_types (
+        profile_id bigint not null,
+        offer_type varchar(255)
+    )
+Hibernate: 
+    create table roles (
+        id serial not null,
+        name varchar(20) check (name in ('ROLE_OWNER','ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_CUSTOMER')),
+        primary key (id)
+    )
+Hibernate: 
+    create table staff_members (
+        is_active boolean,
+        created_at timestamp(6),
+        created_by bigint,
+        hire_date timestamp(6),
+        id bigserial not null,
+        last_login timestamp(6),
+        department varchar(255),
+        email varchar(255) not null unique,
+        employee_id varchar(255) unique,
+        first_name varchar(255) not null,
+        last_name varchar(255) not null,
+        password varchar(255) not null,
+        username varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table staff_roles (
+        role_id integer not null,
+        staff_id bigint not null,
+        primary key (role_id, staff_id)
+    )
+Hibernate: 
+    create table user_roles (
+        role_id integer not null,
+        user_id bigint not null,
+        primary key (role_id, user_id)
+    )
+Hibernate: 
+    create table users (
+        id bigserial not null,
+        email varchar(255),
+        password varchar(255) not null,
+        username varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    alter table if exists campaign_target_categories 
+       add constraint FKo8jnkctieit4xh1544l990p7q 
+       foreign key (campaign_id) 
+       references email_campaigns
+Hibernate: 
+    alter table if exists chat_message 
+       add constraint FK3vttdrltdhmod31anmq4pk75c 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists customer_category_spending 
+       add constraint FK41nv896ujfbfonwfglu8rjvyu 
+       foreign key (profile_id) 
+       references customer_profiles
+Hibernate: 
+    alter table if exists customer_favorite_categories 
+       add constraint FKm41btpq5b1lf0vvh8fi4wvfpr 
+       foreign key (profile_id) 
+       references customer_profiles
+Hibernate: 
+    alter table if exists customer_profiles 
+       add constraint FKnjy1dugyof18fa21tu22fu98j 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists delivery_addresses 
+       add constraint FK703ocx98yak3xear9i4a7p6m5 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists fruit 
+       add constraint FKat5cmawo74etgjcrvxlpmh3w9 
+       foreign key (category_id) 
+       references category
+Hibernate: 
+    alter table if exists order_items 
+       add constraint FK12vejn7ui8n48rg4cd6xwct9 
+       foreign key (fruit_id) 
+       references fruit
+Hibernate: 
+    alter table if exists order_items 
+       add constraint FKbioxgbv59vetrxe0ejfubep1w 
+       foreign key (order_id) 
+       references orders
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKn1d1gkxckw648m2n2d5gx0yx5 
+       foreign key (coupon_id) 
+       references coupons
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKpxtb8awmi0dk6smoh2vp1litg 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKlbsosv99nbgd12pnow9lpms5o 
+       foreign key (delivery_zone_id) 
+       references delivery_zones
+Hibernate: 
+    alter table if exists preferred_offer_types 
+       add constraint FKe61iobpj3lujbcxp6l04ugcwu 
+       foreign key (profile_id) 
+       references negotiation_profiles
+Hibernate: 
+    alter table if exists staff_roles 
+       add constraint FKpw36v917phegjhfo1vdvx3wrr 
+       foreign key (role_id) 
+       references roles
+Hibernate: 
+    alter table if exists staff_roles 
+       add constraint FK4fjh6g0dnwets6e6c949nbvr2 
+       foreign key (staff_id) 
+       references staff_members
+Hibernate: 
+    alter table if exists user_roles 
+       add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 
+       foreign key (role_id) 
+       references roles
+Hibernate: 
+    alter table if exists user_roles 
+       add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
+       foreign key (user_id) 
+       references users
+[2m2025-06-24T23:04:52.424+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2m2025-06-24T23:04:52.550+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.d.j.r.query.QueryEnhancerFactory    [0;39m [2m:[0;39m Hibernate is in classpath; If applicable, HQL parser will be used.
+[2m2025-06-24T23:04:53.584+03:00[0;39m [33m WARN[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mJpaBaseConfiguration$JpaWebConfiguration[0;39m [2m:[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2m2025-06-24T23:04:53.697+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.s.web.DefaultSecurityFilterChain    [0;39m [2m:[0;39m Will secure Or [Mvc [pattern='/api/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@19cac930, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7dd1b3c0, org.springframework.security.web.context.SecurityContextHolderFilter@4ad58e69, org.springframework.security.web.header.HeaderWriterFilter@bceee99, org.springframework.web.filter.CorsFilter@51386a2e, org.springframework.security.web.authentication.logout.LogoutFilter@720bb379, com.example.project3.AuthTokenFilter@32d11a5c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7dee7f7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72cbd1c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35f6a35e, org.springframework.security.web.session.SessionManagementFilter@5ed95454, org.springframework.security.web.access.ExceptionTranslationFilter@23c8dd5a, org.springframework.security.web.access.intercept.AuthorizationFilter@2f897ecf]
+[2m2025-06-24T23:04:53.702+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.s.web.DefaultSecurityFilterChain    [0;39m [2m:[0;39m Will secure Or [Mvc [pattern='/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@6c037fa4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c61e062, org.springframework.security.web.context.SecurityContextHolderFilter@3d656154, org.springframework.security.web.header.HeaderWriterFilter@6970ad8, org.springframework.web.filter.CorsFilter@a4c795f, org.springframework.security.web.authentication.logout.LogoutFilter@715d07d1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75798d55, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e026cf0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@307d7622, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33665e66, org.springframework.security.web.session.SessionManagementFilter@54d06bc6, org.springframework.security.web.access.ExceptionTranslationFilter@a67e46, org.springframework.security.web.access.intercept.AuthorizationFilter@37b23736]
+[2m2025-06-24T23:04:53.801+03:00[0;39m [33m WARN[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+[2m2025-06-24T23:04:53.803+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Closing JPA EntityManagerFactory for persistence unit 'default'
+Hibernate: 
+    alter table if exists campaign_target_categories 
+       drop constraint if exists FKo8jnkctieit4xh1544l990p7q
+Hibernate: 
+    alter table if exists chat_message 
+       drop constraint if exists FK3vttdrltdhmod31anmq4pk75c
+Hibernate: 
+    alter table if exists customer_category_spending 
+       drop constraint if exists FK41nv896ujfbfonwfglu8rjvyu
+Hibernate: 
+    alter table if exists customer_favorite_categories 
+       drop constraint if exists FKm41btpq5b1lf0vvh8fi4wvfpr
+Hibernate: 
+    alter table if exists customer_profiles 
+       drop constraint if exists FKnjy1dugyof18fa21tu22fu98j
+Hibernate: 
+    alter table if exists delivery_addresses 
+       drop constraint if exists FK703ocx98yak3xear9i4a7p6m5
+Hibernate: 
+    alter table if exists fruit 
+       drop constraint if exists FKat5cmawo74etgjcrvxlpmh3w9
+Hibernate: 
+    alter table if exists order_items 
+       drop constraint if exists FK12vejn7ui8n48rg4cd6xwct9
+Hibernate: 
+    alter table if exists order_items 
+       drop constraint if exists FKbioxgbv59vetrxe0ejfubep1w
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKn1d1gkxckw648m2n2d5gx0yx5
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKpxtb8awmi0dk6smoh2vp1litg
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKlbsosv99nbgd12pnow9lpms5o
+Hibernate: 
+    alter table if exists preferred_offer_types 
+       drop constraint if exists FKe61iobpj3lujbcxp6l04ugcwu
+Hibernate: 
+    alter table if exists staff_roles 
+       drop constraint if exists FKpw36v917phegjhfo1vdvx3wrr
+Hibernate: 
+    alter table if exists staff_roles 
+       drop constraint if exists FK4fjh6g0dnwets6e6c949nbvr2
+Hibernate: 
+    alter table if exists user_roles 
+       drop constraint if exists FKh8ciramu9cc9q3qcqiv4ue8a6
+Hibernate: 
+    alter table if exists user_roles 
+       drop constraint if exists FKhfh9dx7w3ubf1co1vdev94g3f
+Hibernate: 
+    drop table if exists campaign_target_categories cascade
+Hibernate: 
+    drop table if exists category cascade
+Hibernate: 
+    drop table if exists chat_message cascade
+Hibernate: 
+    drop table if exists coupons cascade
+Hibernate: 
+    drop table if exists customer_category_spending cascade
+Hibernate: 
+    drop table if exists customer_favorite_categories cascade
+Hibernate: 
+    drop table if exists customer_profiles cascade
+Hibernate: 
+    drop table if exists customers cascade
+Hibernate: 
+    drop table if exists delivery_addresses cascade
+Hibernate: 
+    drop table if exists delivery_zones cascade
+Hibernate: 
+    drop table if exists email_campaigns cascade
+Hibernate: 
+    drop table if exists fruit cascade
+Hibernate: 
+    drop table if exists negotiation_profiles cascade
+Hibernate: 
+    drop table if exists order_items cascade
+Hibernate: 
+    drop table if exists orders cascade
+Hibernate: 
+    drop table if exists preferred_offer_types cascade
+Hibernate: 
+    drop table if exists roles cascade
+Hibernate: 
+    drop table if exists staff_members cascade
+Hibernate: 
+    drop table if exists staff_roles cascade
+Hibernate: 
+    drop table if exists user_roles cascade
+Hibernate: 
+    drop table if exists users cascade
+[2m2025-06-24T23:04:53.848+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Shutdown initiated...
+[2m2025-06-24T23:04:53.849+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Shutdown completed.
+[2m2025-06-24T23:04:53.854+03:00[0;39m [32m INFO[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.b.a.l.ConditionEvaluationReportLogger[0;39m [2m:[0;39m 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2m2025-06-24T23:04:53.860+03:00[0;39m [31mERROR[0;39m [35m12494[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.d.LoggingFailureAnalysisReporter  [0;39m [2m:[0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.701 s
+[INFO] Finished at: 2025-06-24T23:04:53+03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.4:run (default-cli) on project project3: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

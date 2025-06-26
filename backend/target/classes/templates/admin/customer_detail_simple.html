@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Details - Debug</title>
+</head>
+<body>
+    <h1>Customer Details</h1>
+    <p>Customer ID: <span th:text="${customer.id}">N/A</span></p>
+    <p>Email: <span th:text="${customer.email}">N/A</span></p>
+    <p>Name: <span th:text="${customer.firstName + ' ' + customer.lastName}">N/A</span></p>
+    <p>Created At: <span th:text="${customer.createdAt}">N/A</span></p>
+    <p>Profile exists: <span th:text="${profile != null}">N/A</span></p>
+    <p>Orders count: <span th:text="${orders.size()}">N/A</span></p>
+    <a href="/admin/customers">Back to Customers</a>
+</body>
+</html> 

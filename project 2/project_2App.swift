@@ -2,31 +2,21 @@
 //  project_2App.swift
 //  project 2
 //
-//  Created by Ionut Popescu on 26.03.2025.
+//  Created by ionut popescu on 20/05/2024.
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct project_2App: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @StateObject private var authManager = AuthManager.shared
+    @StateObject private var cartManager = CartManager.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(authManager)
+                .environmentObject(cartManager)
         }
-        .modelContainer(sharedModelContainer)
     }
-}
+} 

@@ -1,0 +1,881 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.example:project3 >------------------------
+[INFO] Building project3 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.4:run (default-cli) > test-compile @ project3 >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ project3 ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 32 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ project3 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ project3 ---
+[INFO] skip non existing resourceDirectory /Users/ionutpopescu/Desktop/workinstate1/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ project3 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot:3.2.4:run (default-cli) < test-compile @ project3 <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.4:run (default-cli) @ project3 ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.2.4)[0;39m
+
+[2m2025-06-24T22:27:38.124+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m Starting Project3Application using Java 23.0.2 with PID 9819 (/Users/ionutpopescu/Desktop/workinstate1/backend/target/classes started by ionutpopescu in /Users/ionutpopescu/Desktop/workinstate1/backend)
+[2m2025-06-24T22:27:38.126+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m No active profile set, falling back to 1 default profile: "default"
+[2m2025-06-24T22:27:38.385+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2m2025-06-24T22:27:38.418+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 30 ms. Found 15 JPA repository interfaces.
+[2m2025-06-24T22:27:38.633+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port 8080 (http)
+[2m2025-06-24T22:27:38.639+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardService  [0;39m [2m:[0;39m Starting service [Tomcat]
+[2m2025-06-24T22:27:38.639+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardEngine   [0;39m [2m:[0;39m Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2m2025-06-24T22:27:38.660+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2025-06-24T22:27:38.660+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 515 ms
+[2m2025-06-24T22:27:38.712+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.hibernate.jpa.internal.util.LogHelper [0;39m [2m:[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+[2m2025-06-24T22:27:38.730+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.Version                   [0;39m [2m:[0;39m HHH000412: Hibernate ORM core version 6.4.4.Final
+[2m2025-06-24T22:27:38.740+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.c.internal.RegionFactoryInitiator   [0;39m [2m:[0;39m HHH000026: Second-level cache disabled
+[2m2025-06-24T22:27:38.822+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.o.j.p.SpringPersistenceUnitInfo     [0;39m [2m:[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
+[2m2025-06-24T22:27:38.833+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Starting...
+[2m2025-06-24T22:27:38.884+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.pool.HikariPool       [0;39m [2m:[0;39m HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@61d2f267
+[2m2025-06-24T22:27:38.885+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Start completed.
+[2m2025-06-24T22:27:38.902+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.orm.deprecation           [0;39m [2m:[0;39m HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2m2025-06-24T22:27:39.399+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.e.t.j.p.i.JtaPlatformInitiator      [0;39m [2m:[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table if exists campaign_target_categories 
+       drop constraint if exists FKo8jnkctieit4xh1544l990p7q
+[2m2025-06-24T22:27:39.406+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.406+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "campaign_target_categories" does not exist, skipping
+Hibernate: 
+    alter table if exists chat_message 
+       drop constraint if exists FK3vttdrltdhmod31anmq4pk75c
+[2m2025-06-24T22:27:39.407+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.407+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "chat_message" does not exist, skipping
+Hibernate: 
+    alter table if exists customer_category_spending 
+       drop constraint if exists FK41nv896ujfbfonwfglu8rjvyu
+[2m2025-06-24T22:27:39.407+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.407+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "customer_category_spending" does not exist, skipping
+Hibernate: 
+    alter table if exists customer_favorite_categories 
+       drop constraint if exists FKm41btpq5b1lf0vvh8fi4wvfpr
+[2m2025-06-24T22:27:39.407+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.407+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "customer_favorite_categories" does not exist, skipping
+Hibernate: 
+    alter table if exists customer_profiles 
+       drop constraint if exists FKnjy1dugyof18fa21tu22fu98j
+[2m2025-06-24T22:27:39.408+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.408+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "customer_profiles" does not exist, skipping
+Hibernate: 
+    alter table if exists delivery_addresses 
+       drop constraint if exists FK703ocx98yak3xear9i4a7p6m5
+[2m2025-06-24T22:27:39.408+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.408+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "delivery_addresses" does not exist, skipping
+Hibernate: 
+    alter table if exists fruit 
+       drop constraint if exists FKat5cmawo74etgjcrvxlpmh3w9
+[2m2025-06-24T22:27:39.408+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.408+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "fruit" does not exist, skipping
+Hibernate: 
+    alter table if exists order_items 
+       drop constraint if exists FK12vejn7ui8n48rg4cd6xwct9
+[2m2025-06-24T22:27:39.409+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.409+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "order_items" does not exist, skipping
+Hibernate: 
+    alter table if exists order_items 
+       drop constraint if exists FKbioxgbv59vetrxe0ejfubep1w
+[2m2025-06-24T22:27:39.409+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.409+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "order_items" does not exist, skipping
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKn1d1gkxckw648m2n2d5gx0yx5
+[2m2025-06-24T22:27:39.409+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.409+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "orders" does not exist, skipping
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKpxtb8awmi0dk6smoh2vp1litg
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "orders" does not exist, skipping
+Hibernate: 
+    alter table if exists orders 
+       drop constraint if exists FKlbsosv99nbgd12pnow9lpms5o
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "orders" does not exist, skipping
+Hibernate: 
+    alter table if exists preferred_offer_types 
+       drop constraint if exists FKe61iobpj3lujbcxp6l04ugcwu
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "preferred_offer_types" does not exist, skipping
+Hibernate: 
+    alter table if exists staff_roles 
+       drop constraint if exists FKpw36v917phegjhfo1vdvx3wrr
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.410+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "staff_roles" does not exist, skipping
+Hibernate: 
+    alter table if exists staff_roles 
+       drop constraint if exists FK4fjh6g0dnwets6e6c949nbvr2
+[2m2025-06-24T22:27:39.411+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.411+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "staff_roles" does not exist, skipping
+Hibernate: 
+    alter table if exists user_roles 
+       drop constraint if exists FKh8ciramu9cc9q3qcqiv4ue8a6
+[2m2025-06-24T22:27:39.411+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.411+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "user_roles" does not exist, skipping
+Hibernate: 
+    alter table if exists user_roles 
+       drop constraint if exists FKhfh9dx7w3ubf1co1vdev94g3f
+[2m2025-06-24T22:27:39.411+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.411+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m relation "user_roles" does not exist, skipping
+Hibernate: 
+    drop table if exists campaign_target_categories cascade
+[2m2025-06-24T22:27:39.412+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.412+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "campaign_target_categories" does not exist, skipping
+Hibernate: 
+    drop table if exists category cascade
+[2m2025-06-24T22:27:39.412+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.412+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "category" does not exist, skipping
+Hibernate: 
+    drop table if exists chat_message cascade
+[2m2025-06-24T22:27:39.412+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.412+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "chat_message" does not exist, skipping
+Hibernate: 
+    drop table if exists coupons cascade
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "coupons" does not exist, skipping
+Hibernate: 
+    drop table if exists customer_category_spending cascade
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "customer_category_spending" does not exist, skipping
+Hibernate: 
+    drop table if exists customer_favorite_categories cascade
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "customer_favorite_categories" does not exist, skipping
+Hibernate: 
+    drop table if exists customer_profiles cascade
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "customer_profiles" does not exist, skipping
+Hibernate: 
+    drop table if exists customers cascade
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.413+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "customers" does not exist, skipping
+Hibernate: 
+    drop table if exists delivery_addresses cascade
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "delivery_addresses" does not exist, skipping
+Hibernate: 
+    drop table if exists delivery_zones cascade
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "delivery_zones" does not exist, skipping
+Hibernate: 
+    drop table if exists email_campaigns cascade
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "email_campaigns" does not exist, skipping
+Hibernate: 
+    drop table if exists fruit cascade
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.414+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "fruit" does not exist, skipping
+Hibernate: 
+    drop table if exists negotiation_profiles cascade
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "negotiation_profiles" does not exist, skipping
+Hibernate: 
+    drop table if exists order_items cascade
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "order_items" does not exist, skipping
+Hibernate: 
+    drop table if exists orders cascade
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "orders" does not exist, skipping
+Hibernate: 
+    drop table if exists preferred_offer_types cascade
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "preferred_offer_types" does not exist, skipping
+Hibernate: 
+    drop table if exists roles cascade
+[2m2025-06-24T22:27:39.415+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "roles" does not exist, skipping
+Hibernate: 
+    drop table if exists staff_members cascade
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "staff_members" does not exist, skipping
+Hibernate: 
+    drop table if exists staff_roles cascade
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "staff_roles" does not exist, skipping
+Hibernate: 
+    drop table if exists user_roles cascade
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.416+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "user_roles" does not exist, skipping
+Hibernate: 
+    drop table if exists users cascade
+[2m2025-06-24T22:27:39.417+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m SQL Warning Code: 0, SQLState: 00000
+[2m2025-06-24T22:27:39.417+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.engine.jdbc.spi.SqlExceptionHelper  [0;39m [2m:[0;39m table "users" does not exist, skipping
+Hibernate: 
+    create table campaign_target_categories (
+        campaign_id bigint not null,
+        category_name varchar(255)
+    )
+Hibernate: 
+    create table category (
+        id bigserial not null,
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table chat_message (
+        customer_id bigint,
+        id bigserial not null,
+        timestamp timestamp(6),
+        content TEXT,
+        sender varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table coupons (
+        current_uses integer,
+        discount_value numeric(19,2),
+        is_active boolean,
+        max_uses integer,
+        minimum_order_value numeric(19,2),
+        created_at timestamp(6),
+        customer_id bigint,
+        expiration_date timestamp(6),
+        id bigserial not null,
+        used_at timestamp(6),
+        applicable_categories varchar(255),
+        coupon_code varchar(255) not null unique,
+        coupon_type varchar(255) check (coupon_type in ('PERCENTAGE','FIXED_AMOUNT','FREE_SHIPPING','BOGO')),
+        generated_by varchar(255) check (generated_by in ('AI_NEGOTIATION','MANUAL_ADMIN','EMAIL_CAMPAIGN','LOYALTY_REWARD','WELCOME_BONUS')),
+        restrictions TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table customer_category_spending (
+        amount_spent numeric(38,2),
+        profile_id bigint not null,
+        category_name varchar(255) not null,
+        primary key (profile_id, category_name)
+    )
+Hibernate: 
+    create table customer_favorite_categories (
+        profile_id bigint not null,
+        category_name varchar(255)
+    )
+Hibernate: 
+    create table customer_profiles (
+        average_order_value numeric(19,2),
+        eligible_for_automatic_discounts boolean,
+        emails_clicked integer,
+        emails_opened integer,
+        emails_sent integer,
+        max_discount_percentage numeric(5,2),
+        monthly_negotiation_count integer,
+        negotiation_attempts integer,
+        opt_out boolean,
+        order_frequency_days float(53),
+        successful_negotiations integer,
+        total_orders integer,
+        total_savings_from_negotiations numeric(19,2),
+        total_spent numeric(19,2),
+        customer_id bigint not null unique,
+        first_order_date timestamp(6),
+        id bigserial not null,
+        last_email_sent timestamp(6),
+        last_monthly_reset timestamp(6),
+        last_negotiation_date timestamp(6),
+        last_order_date timestamp(6),
+        profile_created_at timestamp(6),
+        profile_updated_at timestamp(6),
+        ai_personality_profile TEXT,
+        customer_segment varchar(255),
+        negotiation_behavior varchar(255),
+        negotiation_tier varchar(255),
+        preferred_communication_time varchar(255),
+        price_sensitivity varchar(255),
+        risk_level varchar(255),
+        seasonal_preferences TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table customers (
+        analytics_consent boolean,
+        data_retention_period_months integer,
+        email_verified boolean,
+        gdpr_deleted boolean,
+        is_active boolean,
+        marketing_consent boolean,
+        profiling_consent boolean,
+        consent_date timestamp(6),
+        consent_withdrawn_date timestamp(6),
+        created_at timestamp(6),
+        date_of_birth timestamp(6),
+        deletion_date timestamp(6),
+        id bigserial not null,
+        last_data_export_date timestamp(6),
+        last_login timestamp(6),
+        privacy_policy_accepted_date timestamp(6),
+        email varchar(255) not null unique,
+        first_name varchar(255),
+        last_name varchar(255),
+        password varchar(255) not null,
+        phone_number varchar(255),
+        privacy_policy_version varchar(255),
+        username varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table delivery_addresses (
+        delivery_difficulty_score integer,
+        floor_number integer,
+        has_elevator boolean,
+        is_default boolean,
+        is_geocoded boolean,
+        is_residential boolean,
+        is_validated boolean,
+        latitude float(53),
+        longitude float(53),
+        requires_signature boolean,
+        created_at timestamp(6),
+        customer_id bigint,
+        id bigserial not null,
+        last_validated_at timestamp(6),
+        updated_at timestamp(6),
+        delivery_instructions varchar(500),
+        access_code varchar(255),
+        address_nickname varchar(255),
+        apartment_unit varchar(255),
+        city varchar(255) not null,
+        contact_phone varchar(255),
+        country varchar(255) not null,
+        formatted_address varchar(255),
+        state_province varchar(255),
+        street_address varchar(255) not null,
+        zip_code varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table delivery_zones (
+        base_delivery_cost numeric(10,2),
+        base_delivery_hours integer,
+        daily_capacity integer,
+        delivery_days_mask integer,
+        delivery_end_time time(6),
+        delivery_start_time time(6),
+        express_delivery_cost numeric(10,2),
+        is_active boolean,
+        max_delivery_hours integer,
+        max_distance_km float(53),
+        min_delivery_hours integer,
+        premium_delivery_cost numeric(10,2),
+        priority_order integer,
+        weather_impact_factor float(53),
+        id bigserial not null,
+        city_names varchar(255),
+        description varchar(255) not null,
+        name varchar(255) not null,
+        zip_codes varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table email_campaigns (
+        ai_generated boolean,
+        emails_clicked integer,
+        emails_delivered integer,
+        emails_opened integer,
+        emails_sent integer,
+        min_days_since_last_email integer,
+        personalization_enabled boolean,
+        recipients_count integer,
+        respect_opt_out boolean,
+        unsubscribes integer,
+        created_at timestamp(6),
+        id bigserial not null,
+        scheduled_date timestamp(6),
+        sent_at timestamp(6),
+        updated_at timestamp(6),
+        campaign_name varchar(255) not null,
+        campaign_type varchar(255),
+        content_template TEXT,
+        created_by varchar(255),
+        status varchar(255),
+        subject_template TEXT,
+        target_segment varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table fruit (
+        price numeric(38,2),
+        stock integer,
+        category_id bigint,
+        id bigserial not null,
+        description varchar(255),
+        name varchar(255),
+        unit varchar(255) check (unit in ('KG','PIECE','PACK','DOZEN','LITER','GRAM','POUND')),
+        primary key (id)
+    )
+Hibernate: 
+    create table negotiation_profiles (
+        average_discount_requested numeric(5,2),
+        blocked_from_negotiation boolean,
+        bundle_preference_score numeric(3,2),
+        consecutive_acceptances integer,
+        consecutive_rejections integer,
+        loyalty_influence_factor numeric(3,2),
+        max_negotiations_per_month integer,
+        negotiation_success_rate numeric(5,2),
+        price_anchor_sensitivity numeric(3,2),
+        responds_to_urgency boolean,
+        block_until_date timestamp(6),
+        customer_id bigint not null,
+        id bigserial not null,
+        profile_created_at timestamp(6),
+        profile_updated_at timestamp(6),
+        block_reason varchar(255),
+        last_negotiation_outcome varchar(255),
+        negotiation_style varchar(255),
+        typical_negotiation_time varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table order_items (
+        price numeric(38,2),
+        quantity integer not null,
+        fruit_id bigint not null,
+        id bigserial not null,
+        order_id bigint not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table orders (
+        discount_amount numeric(38,2),
+        fulfilled boolean not null,
+        original_amount numeric(38,2),
+        total_amount numeric(38,2),
+        coupon_id bigint,
+        customer_id bigint not null,
+        delivery_date timestamp(6),
+        delivery_zone_id bigint,
+        fulfilled_date timestamp(6),
+        id bigserial not null,
+        order_date timestamp(6),
+        coupon_code varchar(255),
+        order_notes varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table preferred_offer_types (
+        profile_id bigint not null,
+        offer_type varchar(255)
+    )
+Hibernate: 
+    create table roles (
+        id serial not null,
+        name varchar(20) check (name in ('ROLE_OWNER','ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_CUSTOMER')),
+        primary key (id)
+    )
+Hibernate: 
+    create table staff_members (
+        is_active boolean,
+        created_at timestamp(6),
+        created_by bigint,
+        hire_date timestamp(6),
+        id bigserial not null,
+        last_login timestamp(6),
+        department varchar(255),
+        email varchar(255) not null unique,
+        employee_id varchar(255) unique,
+        first_name varchar(255) not null,
+        last_name varchar(255) not null,
+        password varchar(255) not null,
+        username varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table staff_roles (
+        role_id integer not null,
+        staff_id bigint not null,
+        primary key (role_id, staff_id)
+    )
+Hibernate: 
+    create table user_roles (
+        role_id integer not null,
+        user_id bigint not null,
+        primary key (role_id, user_id)
+    )
+Hibernate: 
+    create table users (
+        id bigserial not null,
+        email varchar(255),
+        password varchar(255) not null,
+        username varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    alter table if exists campaign_target_categories 
+       add constraint FKo8jnkctieit4xh1544l990p7q 
+       foreign key (campaign_id) 
+       references email_campaigns
+Hibernate: 
+    alter table if exists chat_message 
+       add constraint FK3vttdrltdhmod31anmq4pk75c 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists customer_category_spending 
+       add constraint FK41nv896ujfbfonwfglu8rjvyu 
+       foreign key (profile_id) 
+       references customer_profiles
+Hibernate: 
+    alter table if exists customer_favorite_categories 
+       add constraint FKm41btpq5b1lf0vvh8fi4wvfpr 
+       foreign key (profile_id) 
+       references customer_profiles
+Hibernate: 
+    alter table if exists customer_profiles 
+       add constraint FKnjy1dugyof18fa21tu22fu98j 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists delivery_addresses 
+       add constraint FK703ocx98yak3xear9i4a7p6m5 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists fruit 
+       add constraint FKat5cmawo74etgjcrvxlpmh3w9 
+       foreign key (category_id) 
+       references category
+Hibernate: 
+    alter table if exists order_items 
+       add constraint FK12vejn7ui8n48rg4cd6xwct9 
+       foreign key (fruit_id) 
+       references fruit
+Hibernate: 
+    alter table if exists order_items 
+       add constraint FKbioxgbv59vetrxe0ejfubep1w 
+       foreign key (order_id) 
+       references orders
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKn1d1gkxckw648m2n2d5gx0yx5 
+       foreign key (coupon_id) 
+       references coupons
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKpxtb8awmi0dk6smoh2vp1litg 
+       foreign key (customer_id) 
+       references customers
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKlbsosv99nbgd12pnow9lpms5o 
+       foreign key (delivery_zone_id) 
+       references delivery_zones
+Hibernate: 
+    alter table if exists preferred_offer_types 
+       add constraint FKe61iobpj3lujbcxp6l04ugcwu 
+       foreign key (profile_id) 
+       references negotiation_profiles
+Hibernate: 
+    alter table if exists staff_roles 
+       add constraint FKpw36v917phegjhfo1vdvx3wrr 
+       foreign key (role_id) 
+       references roles
+Hibernate: 
+    alter table if exists staff_roles 
+       add constraint FK4fjh6g0dnwets6e6c949nbvr2 
+       foreign key (staff_id) 
+       references staff_members
+Hibernate: 
+    alter table if exists user_roles 
+       add constraint FKh8ciramu9cc9q3qcqiv4ue8a6 
+       foreign key (role_id) 
+       references roles
+Hibernate: 
+    alter table if exists user_roles 
+       add constraint FKhfh9dx7w3ubf1co1vdev94g3f 
+       foreign key (user_id) 
+       references users
+[2m2025-06-24T22:27:39.553+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2m2025-06-24T22:27:39.679+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.d.j.r.query.QueryEnhancerFactory    [0;39m [2m:[0;39m Hibernate is in classpath; If applicable, HQL parser will be used.
+[2m2025-06-24T22:27:40.713+03:00[0;39m [33m WARN[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mJpaBaseConfiguration$JpaWebConfiguration[0;39m [2m:[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2m2025-06-24T22:27:40.829+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.s.web.DefaultSecurityFilterChain    [0;39m [2m:[0;39m Will secure Or [Mvc [pattern='/api/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@343561ae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@172a69f1, org.springframework.security.web.context.SecurityContextHolderFilter@1a95df8b, org.springframework.security.web.header.HeaderWriterFilter@1a7b43a1, org.springframework.web.filter.CorsFilter@3b4c46ae, org.springframework.security.web.authentication.logout.LogoutFilter@35f6a35e, com.example.project3.AuthTokenFilter@58e61e18, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d819078, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57146f76, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54f719cb, org.springframework.security.web.session.SessionManagementFilter@4e7e4127, org.springframework.security.web.access.ExceptionTranslationFilter@72cbd1c5, org.springframework.security.web.access.intercept.AuthorizationFilter@786b6aeb]
+[2m2025-06-24T22:27:40.835+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.s.web.DefaultSecurityFilterChain    [0;39m [2m:[0;39m Will secure Or [Mvc [pattern='/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@66860e08, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d622d37, org.springframework.security.web.context.SecurityContextHolderFilter@4490b985, org.springframework.security.web.header.HeaderWriterFilter@25e92583, org.springframework.web.filter.CorsFilter@393adb37, org.springframework.security.web.authentication.logout.LogoutFilter@6a03c039, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@12701677, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3bb444a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@571dab6a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2beba1c9, org.springframework.security.web.session.SessionManagementFilter@68f5e11, org.springframework.security.web.access.ExceptionTranslationFilter@206be60b, org.springframework.security.web.access.intercept.AuthorizationFilter@49f7bb6f]
+[2m2025-06-24T22:27:40.939+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat started on port 8080 (http) with context path ''
+[2m2025-06-24T22:27:40.945+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m Started Project3Application in 2.939 seconds (process running for 3.071)
+[2m2025-06-24T22:27:40.946+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[   scheduling-1][0;39m [2m[0;39m[36mc.example.project3.ScheduledTaskService [0;39m [2m:[0;39m Processing pending email campaigns...
+Hibernate: 
+    select
+        count(*) 
+    from
+        delivery_zones dz1_0
+Hibernate: 
+    select
+        ec1_0.id,
+        ec1_0.ai_generated,
+        ec1_0.campaign_name,
+        ec1_0.campaign_type,
+        ec1_0.content_template,
+        ec1_0.created_at,
+        ec1_0.created_by,
+        ec1_0.emails_clicked,
+        ec1_0.emails_delivered,
+        ec1_0.emails_opened,
+        ec1_0.emails_sent,
+        ec1_0.min_days_since_last_email,
+        ec1_0.personalization_enabled,
+        ec1_0.recipients_count,
+        ec1_0.respect_opt_out,
+        ec1_0.scheduled_date,
+        ec1_0.sent_at,
+        ec1_0.status,
+        ec1_0.subject_template,
+        ec1_0.target_segment,
+        ec1_0.unsubscribes,
+        ec1_0.updated_at 
+    from
+        email_campaigns ec1_0 
+    where
+        ec1_0.scheduled_date<=? 
+        and ec1_0.status='SCHEDULED'
+[2m2025-06-24T22:27:40.976+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[   scheduling-1][0;39m [2m[0;39m[36mc.example.project3.ScheduledTaskService [0;39m [2m:[0;39m Completed processing pending campaigns
+Hibernate: 
+    insert 
+    into
+        delivery_zones
+        (base_delivery_cost, base_delivery_hours, city_names, daily_capacity, delivery_days_mask, delivery_end_time, delivery_start_time, description, express_delivery_cost, is_active, max_delivery_hours, max_distance_km, min_delivery_hours, name, premium_delivery_cost, priority_order, weather_impact_factor, zip_codes) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        delivery_zones
+        (base_delivery_cost, base_delivery_hours, city_names, daily_capacity, delivery_days_mask, delivery_end_time, delivery_start_time, description, express_delivery_cost, is_active, max_delivery_hours, max_distance_km, min_delivery_hours, name, premium_delivery_cost, priority_order, weather_impact_factor, zip_codes) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        delivery_zones
+        (base_delivery_cost, base_delivery_hours, city_names, daily_capacity, delivery_days_mask, delivery_end_time, delivery_start_time, description, express_delivery_cost, is_active, max_delivery_hours, max_distance_km, min_delivery_hours, name, premium_delivery_cost, priority_order, weather_impact_factor, zip_codes) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        delivery_zones
+        (base_delivery_cost, base_delivery_hours, city_names, daily_capacity, delivery_days_mask, delivery_end_time, delivery_start_time, description, express_delivery_cost, is_active, max_delivery_hours, max_distance_km, min_delivery_hours, name, premium_delivery_cost, priority_order, weather_impact_factor, zip_codes) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+✅ Delivery zones seeded successfully!
+   - Central Bucharest: 2-8 hours, €3.99-€12.99
+   - Greater Bucharest: 4-24 hours, €5.99-€15.99
+   - Ilfov County: 8-48 hours, €8.99-€15.99
+   - Major Cities: 24-96 hours, €12.99-€19.99
+🌱 DataSeeder: Starting data seeding...
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    insert 
+    into
+        roles
+        (name) 
+    values
+        (?)
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    insert 
+    into
+        roles
+        (name) 
+    values
+        (?)
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    insert 
+    into
+        roles
+        (name) 
+    values
+        (?)
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    insert 
+    into
+        roles
+        (name) 
+    values
+        (?)
+Hibernate: 
+    select
+        count(*) 
+    from
+        staff_members sm1_0
+🔑 Creating default staff accounts...
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.name 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    insert 
+    into
+        staff_members
+        (created_at, created_by, department, email, employee_id, first_name, hire_date, is_active, last_login, last_name, password, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        staff_roles
+        (staff_id, role_id) 
+    values
+        (?, ?)
+✅ Default owner created: username='owner', password='owner123'
+Hibernate: 
+    insert 
+    into
+        staff_members
+        (created_at, created_by, department, email, employee_id, first_name, hire_date, is_active, last_login, last_name, password, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        staff_roles
+        (staff_id, role_id) 
+    values
+        (?, ?)
+✅ Default admin created: username='admin', password='admin123'
+Hibernate: 
+    select
+        count(*) 
+    from
+        category c1_0
+Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        fruit
+        (category_id, description, name, price, stock, unit) 
+    values
+        (?, ?, ?, ?, ?, ?)
+✅ DataSeeder: Data seeding completed!
+[2m2025-06-24T22:28:11.757+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[nio-8080-exec-1][0;39m [2m[0;39m[36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2m2025-06-24T22:28:11.757+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[nio-8080-exec-1][0;39m [2m[0;39m[36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Initializing Servlet 'dispatcherServlet'
+[2m2025-06-24T22:28:11.758+03:00[0;39m [32m INFO[0;39m [35m9819[0;39m [2m---[0;39m [2m[nio-8080-exec-1][0;39m [2m[0;39m[36mo.s.web.servlet.DispatcherServlet       [0;39m [2m:[0;39m Completed initialization in 1 ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:09 min
+[INFO] Finished at: 2025-06-24T22:29:46+03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.4:run (default-cli) on project project3: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

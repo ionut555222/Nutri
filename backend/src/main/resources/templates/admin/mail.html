@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mail Admin</title>
+</head>
+<body>
+    <h1>Mail Administration</h1>
+    <p>Send a specific email to a user.</p>
+
+    <form th:action="@{/admin/mail/send}" method="post">
+        <div>
+            <label for="user">Select User:</label>
+            <select id="user" name="userId" required>
+                <option value="">-- Select a User --</option>
+                <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.username} + ' (' + ${user.email} + ')'"></option>
+            </select>
+        </div>
+        <div>
+            <label for="emailType">Select Email Type:</label>
+            <select id="emailType" name="emailType" required>
+                <option value="">-- Select an Email Type --</option>
+                <option value="welcome">Welcome Email</option>
+                <option value="promotion">Special Promotion</option>
+                <option value="password_reset">Password Reset</option>
+            </select>
+        </div>
+        <button type="submit">Send Email</button>
+    </form>
+
+    <div th:if="${message}" th:text="${message}"></div>
+
+    <a href="/admin">Back to Admin Panel</a>
+</body>
+</html> 

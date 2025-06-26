@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Email Campaign - Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ai-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .manual-section {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>🚀 Create New Email Campaign</h2>
+        
+        <form th:action="@{/admin/email-campaigns/create}" method="post">
+            <div class="form-group">
+                <label for="campaignName">Campaign Name *</label>
+                <input type="text" id="campaignName" name="campaignName" class="form-control" required 
+                       placeholder="e.g., Summer Sale 2024">
+            </div>
+            
+            <div class="form-group">
+                <label for="campaignType">Campaign Type *</label>
+                <select id="campaignType" name="campaignType" class="form-control" required>
+                    <option value="">Select Campaign Type</option>
+                    <option value="PROMOTIONAL">Promotional</option>
+                    <option value="SEASONAL">Seasonal</option>
+                    <option value="PRODUCT_LAUNCH">Product Launch</option>
+                    <option value="NEWSLETTER">Newsletter</option>
+                    <option value="WELCOME">Welcome</option>
+                    <option value="RETENTION">Retention</option>
+                    <option value="UPSELL">Upsell</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="targetSegment">Target Segment *</label>
+                <select id="targetSegment" name="targetSegment" class="form-control" required>
+                    <option value="">Select Target Segment</option>
+                    <option value="All">All Customers</option>
+                    <option value="VIP">VIP Customers</option>
+                    <option value="Regular">Regular Customers</option>
+                    <option value="New">New Customers</option>
+                    <option value="Inactive">Inactive Customers</option>
+                    <option th:each="segment : ${segments}" 
+                            th:value="${segment}" 
+                            th:text="${segment}">Custom Segment</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="aiGenerated" name="aiGenerated" value="true" 
+                           onchange="toggleCampaignType()">
+                    <label for="aiGenerated">🤖 Use AI to Generate Content</label>
+                </div>
+            </div>
+            
+            <div id="aiSection" class="ai-section" style="display: none;">
+                <h4>🤖 AI Content Generation</h4>
+                <p>AI will automatically generate personalized subject lines and content based on customer profiles and the selected campaign type.</p>
+                <ul>
+                    <li>✅ Personalized subject lines</li>
+                    <li>✅ Dynamic content based on customer preferences</li>
+                    <li>✅ Optimized for engagement</li>
+                    <li>✅ A/B testing variations</li>
+                </ul>
+            </div>
+            
+            <div id="manualSection" class="manual-section">
+                <h4>📝 Manual Content Creation</h4>
+                
+                <div class="form-group">
+                    <label for="subjectTemplate">Subject Line Template</label>
+                    <input type="text" id="subjectTemplate" name="subjectTemplate" class="form-control" 
+                           placeholder="e.g., Don't miss out on our {{campaignType}} - {{customerName}}!">
+                    <small>Use {{customerName}}, {{campaignType}}, etc. for personalization</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contentTemplate">Email Content Template</label>
+                    <textarea id="contentTemplate" name="contentTemplate" class="form-control" 
+                              placeholder="Dear {{customerName}},
+
+We're excited to share our latest {{campaignType}} with you!
+
+[Your content here]
+
+Best regards,
+The Team"></textarea>
+                    <small>Use {{customerName}}, {{favoriteCategory}}, {{totalSpent}}, etc. for personalization</small>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-top: 30px;">
+                <button type="submit" class="btn btn-primary">🚀 Create Campaign</button>
+                <a th:href="@{/admin/email-campaigns}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        function toggleCampaignType() {
+            const aiCheckbox = document.getElementById('aiGenerated');
+            const aiSection = document.getElementById('aiSection');
+            const manualSection = document.getElementById('manualSection');
+            const subjectTemplate = document.getElementById('subjectTemplate');
+            const contentTemplate = document.getElementById('contentTemplate');
+            
+            if (aiCheckbox.checked) {
+                aiSection.style.display = 'block';
+                manualSection.style.display = 'none';
+                subjectTemplate.required = false;
+                contentTemplate.required = false;
+            } else {
+                aiSection.style.display = 'none';
+                manualSection.style.display = 'block';
+                subjectTemplate.required = true;
+                contentTemplate.required = true;
+            }
+        }
+        
+        // Initialize the form state
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleCampaignType();
+        });
+    </script>
+</body>
+</html> 

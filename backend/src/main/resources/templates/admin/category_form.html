@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Form</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f2f2f7; color: #1c1c1e; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { font-size: 24px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; }
+        input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .btn { padding: 10px 15px; background-color: #007aff; color: white; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-secondary { background-color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${category.id == null} ? 'Add Category' : 'Edit Category'"></h1>
+        <form th:action="${category.id == null} ? @{/admin/categories/save} : @{/admin/categories/update/{id}(id=${category.id})}" th:object="${category}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" th:field="*{name}" required />
+            </div>
+            <button type="submit" class="btn">Save</button>
+            <a href="/admin/categories" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html> 

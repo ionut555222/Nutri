@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Campaigns - Simple</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Email Campaigns (Simple View)</h1>
+        
+        <p>Total Campaigns: <span th:text="${campaignCount}">0</span></p>
+        
+        <div th:if="${error}">
+            <div style="color: red; background: #ffe6e6; padding: 10px; border-radius: 5px;">
+                Error: <span th:text="${error}">Unknown error</span>
+            </div>
+        </div>
+        
+        <div th:if="${campaignCount == 0}">
+            <p>No email campaigns found. <a href="/admin/email-campaigns/new">Create your first campaign</a></p>
+        </div>
+        
+        <div th:if="${campaignCount > 0}">
+            <h2>Campaigns:</h2>
+            <ul>
+                <li th:each="campaign : ${campaigns}">
+                    <strong th:text="${campaign.campaignName}">Campaign Name</strong> - 
+                    <span th:text="${campaign.status}">Status</span>
+                </li>
+            </ul>
+        </div>
+        
+        <a href="/admin">← Back to Admin</a>
+    </div>
+</body>
+</html> 

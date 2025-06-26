@@ -1,0 +1,13 @@
+# Xcode
+.DS_Store
+/build/
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+
+# Swift
+.swiftpm/
+DerivedData/
+
+# Secrets
+Secrets.swift 

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Profiles - Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .profile-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .segment-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+                 .segment-premium { background: #ffd700; color: #333; }
+        .segment-regular { background: #4CAF50; color: white; }
+        .segment-budget { background: #2196F3; color: white; }
+        .segment-new { background: #FF9800; color: white; }
+        .risk-high { color: #f44336; }
+        .risk-medium { color: #ff9800; }
+        .risk-low { color: #4caf50; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+        .filter-section {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .actions {
+            margin: 20px 0;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-warning { background: #ffc107; color: #212529; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-info { background: #17a2b8; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Profile Management</h1>
+        
+        <div th:if="${message}" class="alert alert-info" th:text="${message}"></div>
+        
+        <div class="actions">
+            <a href="/admin" class="btn btn-secondary">← Back to Admin</a>
+            <form th:action="@{/admin/customer-profiles/update-all}" method="post" style="display: inline;">
+                <button type="submit" class="btn btn-primary">🔄 Update All Profiles</button>
+            </form>
+            <a href="/admin/email-campaigns" class="btn btn-info">📧 Email Campaigns</a>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Filter & Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <strong th:text="${profiles != null ? #lists.size(profiles) : 0}">0</strong>
+                    <div>Total Customers</div>
+                </div>
+                <div class="stat-item">
+                    <strong>0</strong>
+                    <div>Premium Customers</div>
+                </div>
+                <div class="stat-item">
+                    <strong>0</strong>
+                    <div>At Risk Customers</div>
+                </div>
+                <div class="stat-item">
+                    <strong>0</strong>
+                    <div>Opted Out</div>
+                </div>
+            </div>
+            
+            <div>
+                <label>Filter by Segment:</label>
+                <select id="segmentFilter" onchange="filterProfiles()">
+                    <option value="">All Segments</option>
+                    <option th:each="segment : ${segments}" th:value="${segment}" th:text="${segment}"></option>
+                </select>
+                
+                <label>Filter by Risk Level:</label>
+                <select id="riskFilter" onchange="filterProfiles()">
+                    <option value="">All Risk Levels</option>
+                    <option value="Low">Low Risk</option>
+                    <option value="Medium">Medium Risk</option>
+                    <option value="High">High Risk</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="profile-grid" id="profileGrid">
+            <div th:each="profile : ${profiles}" class="profile-card" 
+                 th:data-segment="${profile.customerSegment}" 
+                 th:data-risk="${profile.riskLevel}">
+                
+                <div class="profile-header">
+                    <h3 th:text="${profile.customer != null ? profile.customer.username : 'Unknown Customer'}">Customer Name</h3>
+                    <span th:class="'segment-badge segment-' + ${#strings.toLowerCase(profile.customerSegment != null ? profile.customerSegment : 'new')}" 
+                          th:text="${profile.customerSegment != null ? profile.customerSegment : 'New'}">Segment</span>
+                </div>
+                
+                <div class="profile-info">
+                    <p><strong>Email:</strong> <span th:text="${profile.customer != null ? profile.customer.email : 'unknown@example.com'}">email@example.com</span></p>
+                    <p><strong>Risk Level:</strong> 
+                       <span th:class="'risk-' + ${#strings.toLowerCase(profile.riskLevel)}" 
+                             th:text="${profile.riskLevel}">Low</span>
+                    </p>
+                    <p><strong>Price Sensitivity:</strong> <span th:text="${profile.priceSensitivity}">Medium</span></p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <strong th:text="${profile.totalOrders}">0</strong>
+                        <div>Total Orders</div>
+                    </div>
+                    <div class="stat-item">
+                        <strong>$<span th:text="${#numbers.formatDecimal(profile.totalSpent, 1, 2)}">0.00</span></strong>
+                        <div>Total Spent</div>
+                    </div>
+                    <div class="stat-item">
+                        <strong>$<span th:text="${#numbers.formatDecimal(profile.averageOrderValue, 1, 2)}">0.00</span></strong>
+                        <div>Avg Order Value</div>
+                    </div>
+                    <div class="stat-item">
+                        <strong th:text="${#numbers.formatDecimal(profile.orderFrequencyDays, 1, 1)}">0.0</strong>
+                        <div>Days Between Orders</div>
+                    </div>
+                </div>
+                
+                <div class="email-stats">
+                    <h4>Email Engagement</h4>
+                    <p>
+                        <strong>Sent:</strong> <span th:text="${profile.emailsSent}">0</span> |
+                        <strong>Opened:</strong> <span th:text="${profile.emailsOpened}">0</span> |
+                        <strong>Clicked:</strong> <span th:text="${profile.emailsClicked}">0</span>
+                    </p>
+                    <p>
+                        <strong>Open Rate:</strong> <span th:text="${#numbers.formatDecimal(profile.emailOpenRate, 1, 1)}">0.0</span>% |
+                        <strong>Click Rate:</strong> <span th:text="${#numbers.formatDecimal(profile.emailClickRate, 1, 1)}">0.0</span>%
+                    </p>
+                    <p th:if="${profile.optOut}" style="color: red;"><strong>⚠️ Opted Out</strong></p>
+                </div>
+                
+                <div th:if="${profile.favoriteCategories != null and !#lists.isEmpty(profile.favoriteCategories)}">
+                    <h4>Favorite Categories</h4>
+                    <p th:text="${#strings.listJoin(profile.favoriteCategories, ', ')}">Categories</p>
+                </div>
+                
+                <div th:if="${profile.aiPersonalityProfile != null}">
+                    <h4>AI Insights</h4>
+                    <p th:text="${profile.aiPersonalityProfile}">AI insights about customer</p>
+                </div>
+                
+                <div class="profile-actions">
+                    <a th:href="@{/admin/customer-profiles/{id}(id=${profile.id})}" class="btn btn-info">👁️ View Details</a>
+                    <form th:action="@{/admin/customer-profiles/update/{id}(id=${profile.id})}" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-warning">🔄 Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function filterProfiles() {
+            const segmentFilter = document.getElementById('segmentFilter').value;
+            const riskFilter = document.getElementById('riskFilter').value;
+            const cards = document.querySelectorAll('.profile-card');
+            
+            cards.forEach(card => {
+                const segment = card.getAttribute('data-segment');
+                const risk = card.getAttribute('data-risk');
+                
+                const segmentMatch = !segmentFilter || segment === segmentFilter;
+                const riskMatch = !riskFilter || risk === riskFilter;
+                
+                if (segmentMatch && riskMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

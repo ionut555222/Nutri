@@ -1,0 +1,100 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.example:project3 >------------------------
+[INFO] Building project3 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.4:run (default-cli) > test-compile @ project3 >>>
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ project3 ---
+[INFO] argLine set to -javaagent:/Users/ionutpopescu/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/Users/ionutpopescu/Desktop/workinstate1/backend/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ project3 ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 40 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ project3 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ project3 ---
+[INFO] skip non existing resourceDirectory /Users/ionutpopescu/Desktop/workinstate1/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ project3 ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug release 17] to target/test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.2.4:run (default-cli) < test-compile @ project3 <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.4:run (default-cli) @ project3 ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+[32m :: Spring Boot :: [39m              [2m (v3.2.4)[0;39m
+
+[2m2025-06-26T21:56:59.898+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m Starting Project3Application using Java 23.0.2 with PID 9928 (/Users/ionutpopescu/Desktop/workinstate1/backend/target/classes started by ionutpopescu in /Users/ionutpopescu/Desktop/workinstate1/backend)
+[2m2025-06-26T21:56:59.898+03:00[0;39m [32mDEBUG[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m Running with Spring Boot v3.2.4, Spring v6.1.5
+[2m2025-06-26T21:56:59.899+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mc.example.project3.Project3Application  [0;39m [2m:[0;39m No active profile set, falling back to 1 default profile: "default"
+[2m2025-06-26T21:57:00.285+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2m2025-06-26T21:57:00.314+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.d.r.c.RepositoryConfigurationDelegate[0;39m [2m:[0;39m Finished Spring Data repository scanning in 26 ms. Found 15 JPA repository interfaces.
+[2m2025-06-26T21:57:00.589+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat initialized with port 8080 (http)
+[2m2025-06-26T21:57:00.594+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardService  [0;39m [2m:[0;39m Starting service [Tomcat]
+[2m2025-06-26T21:57:00.594+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.apache.catalina.core.StandardEngine   [0;39m [2m:[0;39m Starting Servlet engine: [Apache Tomcat/10.1.19]
+[2m2025-06-26T21:57:00.618+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.a.c.c.C.[Tomcat].[localhost].[/]      [0;39m [2m:[0;39m Initializing Spring embedded WebApplicationContext
+[2m2025-06-26T21:57:00.618+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mw.s.c.ServletWebServerApplicationContext[0;39m [2m:[0;39m Root WebApplicationContext: initialization completed in 701 ms
+[2m2025-06-26T21:57:00.743+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.hibernate.jpa.internal.util.LogHelper [0;39m [2m:[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+[2m2025-06-26T21:57:00.840+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.Version                   [0;39m [2m:[0;39m HHH000412: Hibernate ORM core version 6.4.4.Final
+[2m2025-06-26T21:57:00.871+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.c.internal.RegionFactoryInitiator   [0;39m [2m:[0;39m HHH000026: Second-level cache disabled
+[2m2025-06-26T21:57:01.055+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.o.j.p.SpringPersistenceUnitInfo     [0;39m [2m:[0;39m No LoadTimeWeaver setup: ignoring JPA class transformer
+[2m2025-06-26T21:57:01.083+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Starting...
+[2m2025-06-26T21:57:01.143+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.pool.HikariPool       [0;39m [2m:[0;39m HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@647ff23e
+[2m2025-06-26T21:57:01.144+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Start completed.
+[2m2025-06-26T21:57:01.160+03:00[0;39m [33m WARN[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36morg.hibernate.orm.deprecation           [0;39m [2m:[0;39m HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2m2025-06-26T21:57:01.635+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.h.e.t.j.p.i.JtaPlatformInitiator      [0;39m [2m:[0;39m HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2m2025-06-26T21:57:01.816+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2m2025-06-26T21:57:01.987+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.d.j.r.query.QueryEnhancerFactory    [0;39m [2m:[0;39m Hibernate is in classpath; If applicable, HQL parser will be used.
+[2m2025-06-26T21:57:02.272+03:00[0;39m [32mDEBUG[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.example.project3.AuthTokenFilter    [0;39m [2m:[0;39m Filter 'authenticationJwtTokenFilter' configured for use
+[2m2025-06-26T21:57:03.082+03:00[0;39m [33m WARN[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mJpaBaseConfiguration$JpaWebConfiguration[0;39m [2m:[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2m2025-06-26T21:57:03.265+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.a.e.web.EndpointLinksResolver     [0;39m [2m:[0;39m Exposing 3 endpoint(s) beneath base path '/actuator'
+[2m2025-06-26T21:57:03.289+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.s.web.DefaultSecurityFilterChain    [0;39m [2m:[0;39m Will secure Or [Mvc [pattern='/api/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@3fdcbaf4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51b635fc, org.springframework.security.web.context.SecurityContextHolderFilter@62c74f24, org.springframework.security.web.header.HeaderWriterFilter@324f600a, org.springframework.web.filter.CorsFilter@2478f015, org.springframework.security.web.authentication.logout.LogoutFilter@5b4a84c0, com.example.project3.AuthTokenFilter@3af30ab8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35e4fcd7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18ac5b83, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43c3bbf1, org.springframework.security.web.session.SessionManagementFilter@361b25cf, org.springframework.security.web.access.ExceptionTranslationFilter@3397be21, org.springframework.security.web.access.intercept.AuthorizationFilter@4cc1c39f]
+[2m2025-06-26T21:57:03.295+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.s.web.DefaultSecurityFilterChain    [0;39m [2m:[0;39m Will secure Or [Mvc [pattern='/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@38807c9d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@161b77d1, org.springframework.security.web.context.SecurityContextHolderFilter@4bd8491e, org.springframework.security.web.header.HeaderWriterFilter@1d77a5e8, org.springframework.web.filter.CorsFilter@74d18da7, org.springframework.security.web.authentication.logout.LogoutFilter@38d6ad53, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@104770aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70587c0c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5020df0a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@723b62e2, org.springframework.security.web.session.SessionManagementFilter@5146191a, org.springframework.security.web.access.ExceptionTranslationFilter@188467fe, org.springframework.security.web.access.intercept.AuthorizationFilter@5d5358b7]
+[2m2025-06-26T21:57:03.454+03:00[0;39m [33m WARN[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mConfigServletWebServerApplicationContext[0;39m [2m:[0;39m Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+[2m2025-06-26T21:57:03.457+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Closing JPA EntityManagerFactory for persistence unit 'default'
+[2m2025-06-26T21:57:03.458+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Shutdown initiated...
+[2m2025-06-26T21:57:03.459+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-1 - Shutdown completed.
+[2m2025-06-26T21:57:03.467+03:00[0;39m [32m INFO[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36m.s.b.a.l.ConditionEvaluationReportLogger[0;39m [2m:[0;39m 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2m2025-06-26T21:57:03.473+03:00[0;39m [31mERROR[0;39m [35m9928[0;39m [2m---[0;39m [2m[           main][0;39m [2m[0;39m[36mo.s.b.d.LoggingFailureAnalysisReporter  [0;39m [2m:[0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.187 s
+[INFO] Finished at: 2025-06-26T21:57:03+03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.4:run (default-cli) on project project3: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AI Email Marketing - Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .ai-mail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .email-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .email-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .btn {
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+        .btn-primary { background: #007bff; color: white; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-warning { background: #ffc107; color: #212529; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-info { background: #17a2b8; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .customer-preview {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .segment-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .stat-label {
+            color: #6c757d;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .email-preview {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .preview-header {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .ai-features {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .feature-list li::before {
+            content: "🤖";
+            margin-right: 10px;
+        }
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .quick-action {
+            padding: 20px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quick-action:hover {
+            border-color: #007bff;
+            background: #e3f2fd;
+        }
+        .actions {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ai-mail-container">
+        <div class="header-section">
+            <h1>🤖 AI-Powered Email Marketing</h1>
+            <p>Send intelligent, personalized emails based on customer behavior and AI insights</p>
+        </div>
+        
+        <div th:if="${message}" class="alert alert-info" th:text="${message}"></div>
+        
+        <div class="actions">
+            <a href="/admin" class="btn btn-secondary">← Back to Admin</a>
+            <a href="/admin/email-campaigns" class="btn btn-info">📧 Campaign Manager</a>
+            <a href="/admin/customer-profiles" class="btn btn-warning">👥 Customer Profiles</a>
+        </div>
+        
+        <div class="ai-features">
+            <h3>🚀 AI Email Features</h3>
+            <ul class="feature-list">
+                <li>Personalized content based on purchase history</li>
+                <li>Customer segment-specific messaging</li>
+                <li>AI-generated subject lines and content</li>
+                <li>Behavioral targeting and timing optimization</li>
+                <li>Automatic A/B testing recommendations</li>
+            </ul>
+        </div>
+        
+        <div class="email-sections">
+            <!-- Individual Customer Email -->
+            <div class="email-card">
+                <h3>📬 Send Personalized Email to Customer</h3>
+                <form th:action="@{/admin/mail/send-personalized}" method="post">
+                    <div class="form-group">
+                        <label for="customerId">Select Customer:</label>
+                        <select class="form-control" id="customerId" name="customerId" required onchange="showCustomerPreview()">
+                            <option value="">-- Select a Customer --</option>
+                            <option th:each="customer : ${customers}" th:value="${customer.id}" 
+                                    th:text="${customer.username} + ' (' + ${customer.email} + ')'"></option>
+                        </select>
+                    </div>
+                    
+                    <div id="customerPreview" class="customer-preview" style="display: none;">
+                        <h4>Customer Profile Preview</h4>
+                        <div id="customerDetails"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="campaignType">Email Type:</label>
+                        <select class="form-control" name="campaignType" id="campaignType" required>
+                            <option value="">-- Select Email Type --</option>
+                            <option value="PROMOTIONAL">🎯 Promotional (Based on interests)</option>
+                            <option value="WELCOME">👋 Welcome (New customer greeting)</option>
+                            <option value="RE_ENGAGEMENT">🔄 Re-engagement (Win back inactive)</option>
+                            <option value="SEASONAL">🌟 Seasonal (Current season offers)</option>
+                            <option value="PERSONALIZED">🎨 Personalized (AI-crafted unique)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">🚀 Send AI-Personalized Email</button>
+                </form>
+            </div>
+            
+            <!-- Segment-Based Email -->
+            <div class="email-card">
+                <h3>📊 Send Email to Customer Segment</h3>
+                <form th:action="@{/admin/mail/send-to-segment}" method="post">
+                    <div class="form-group">
+                        <label for="targetSegment">Target Segment:</label>
+                        <select class="form-control" name="targetSegment" id="targetSegment" required onchange="showSegmentStats()">
+                            <option value="">-- Select Customer Segment --</option>
+                            <option value="Premium">💎 Premium Customers</option>
+                            <option value="Regular">⭐ Regular Customers</option>
+                            <option value="Budget">💰 Budget Customers</option>
+                            <option value="New">🌟 New Customers</option>
+                            <option th:each="segment : ${segments}" th:value="${segment}" th:text="${segment}"></option>
+                        </select>
+                    </div>
+                    
+                    <div id="segmentStats" class="segment-stats" style="display: none;">
+                        <div class="stat-item">
+                            <div class="stat-value" id="segmentCount">0</div>
+                            <div class="stat-label">Customers in Segment</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="avgSpending">$0</div>
+                            <div class="stat-label">Avg Spending</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="engagementRate">0%</div>
+                            <div class="stat-label">Email Engagement</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="segmentCampaignType">Campaign Type:</label>
+                        <select class="form-control" name="campaignType" id="segmentCampaignType" required>
+                            <option value="">-- Select Campaign Type --</option>
+                            <option value="PROMOTIONAL">🎯 Promotional Campaign</option>
+                            <option value="RE_ENGAGEMENT">🔄 Re-engagement Campaign</option>
+                            <option value="SEASONAL">🌟 Seasonal Campaign</option>
+                            <option value="PERSONALIZED">🎨 Personalized Campaign</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">📤 Send to Segment</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="email-card full-width">
+            <h3>⚡ Quick AI Actions</h3>
+            <div class="quick-actions">
+                <div class="quick-action" onclick="createQuickCampaign('PROMOTIONAL', 'Premium')">
+                    <h4>💎 Premium Promo</h4>
+                    <p>Send exclusive offers to premium customers</p>
+                </div>
+                <div class="quick-action" onclick="createQuickCampaign('RE_ENGAGEMENT', 'All')">
+                    <h4>🔄 Win Back</h4>
+                    <p>Re-engage inactive customers</p>
+                </div>
+                <div class="quick-action" onclick="createQuickCampaign('SEASONAL', 'All')">
+                    <h4>🌟 Seasonal</h4>
+                    <p>Current season special offers</p>
+                </div>
+                <div class="quick-action" onclick="createQuickCampaign('WELCOME', 'New')">
+                    <h4>👋 Welcome</h4>
+                    <p>Greet new customers</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div class="email-card full-width">
+            <h3>📈 Email Performance Summary</h3>
+            <div class="segment-stats">
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${#lists.size(profiles)}">0</div>
+                    <div class="stat-label">Total Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${#lists.size(#lists.select(profiles, profile.optOut == false))}">0</div>
+                    <div class="stat-label">Active Subscribers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${#lists.size(#lists.select(profiles, profile.customerSegment == 'Premium'))}">0</div>
+                    <div class="stat-label">Premium Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${#lists.size(#lists.select(profiles, profile.riskLevel == 'High'))}">0</div>
+                    <div class="stat-label">At-Risk Customers</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <h4>🎯 Recommended Actions</h4>
+                <div th:if="${#lists.size(#lists.select(profiles, profile.riskLevel == 'High')) > 0}">
+                    <p>⚠️ You have <strong th:text="${#lists.size(#lists.select(profiles, profile.riskLevel == 'High'))}">0</strong> 
+                       customers at high risk of churning. Consider sending re-engagement emails.</p>
+                </div>
+                <div th:if="${#lists.size(#lists.select(profiles, profile.customerSegment == 'New')) > 0}">
+                    <p>🌟 You have <strong th:text="${#lists.size(#lists.select(profiles, profile.customerSegment == 'New'))}">0</strong> 
+                       new customers who could benefit from welcome emails.</p>
+                </div>
+                <div th:if="${#lists.size(#lists.select(profiles, profile.customerSegment == 'Premium')) > 0}">
+                    <p>💎 Your <strong th:text="${#lists.size(#lists.select(profiles, profile.customerSegment == 'Premium'))}">0</strong> 
+                       premium customers are perfect for exclusive seasonal offers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showCustomerPreview() {
+            const userId = document.getElementById('userId').value;
+            const customerPreview = document.getElementById('customerPreview');
+            const customerDetails = document.getElementById('customerDetails');
+            
+            if (userId) {
+                // Find customer profile data
+                const profiles = /*[[${profiles}]]*/ [];
+                const profile = profiles.find(p => p.user.id == userId);
+                
+                if (profile) {
+                    customerDetails.innerHTML = `
+                        <p><strong>Segment:</strong> ${profile.customerSegment}</p>
+                        <p><strong>Total Orders:</strong> ${profile.totalOrders}</p>
+                        <p><strong>Total Spent:</strong> $${profile.totalSpent}</p>
+                        <p><strong>Risk Level:</strong> ${profile.riskLevel}</p>
+                        <p><strong>Email Engagement:</strong> ${profile.emailOpenRate.toFixed(1)}% open rate</p>
+                    `;
+                }
+                
+                customerPreview.style.display = 'block';
+            } else {
+                customerPreview.style.display = 'none';
+            }
+        }
+        
+        function showSegmentStats() {
+            const segment = document.getElementById('targetSegment').value;
+            const segmentStats = document.getElementById('segmentStats');
+            
+            if (segment) {
+                // This would typically fetch real data via AJAX
+                // For now, showing placeholder data
+                const stats = getSegmentStats(segment);
+                document.getElementById('segmentCount').textContent = stats.count;
+                document.getElementById('avgSpending').textContent = '$' + stats.avgSpending;
+                document.getElementById('engagementRate').textContent = stats.engagement + '%';
+                
+                segmentStats.style.display = 'grid';
+            } else {
+                segmentStats.style.display = 'none';
+            }
+        }
+        
+        function getSegmentStats(segment) {
+            // Placeholder function - would fetch real data in production
+            const segmentData = {
+                'Premium': { count: 25, avgSpending: 245, engagement: 78 },
+                'Regular': { count: 120, avgSpending: 89, engagement: 65 },
+                'Budget': { count: 85, avgSpending: 35, engagement: 58 },
+                'New': { count: 42, avgSpending: 25, engagement: 45 }
+            };
+            
+            return segmentData[segment] || { count: 0, avgSpending: 0, engagement: 0 };
+        }
+        
+        function createQuickCampaign(type, segment) {
+            if (confirm(`Create and send a ${type} campaign to ${segment} customers?`)) {
+                // Create a form and submit it
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '/admin/mail/send-to-segment';
+                
+                const typeInput = document.createElement('input');
+                typeInput.type = 'hidden';
+                typeInput.name = 'campaignType';
+                typeInput.value = type;
+                
+                const segmentInput = document.createElement('input');
+                segmentInput.type = 'hidden';
+                segmentInput.name = 'targetSegment';
+                segmentInput.value = segment;
+                
+                form.appendChild(typeInput);
+                form.appendChild(segmentInput);
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    </script>
+</body>
+</html> 

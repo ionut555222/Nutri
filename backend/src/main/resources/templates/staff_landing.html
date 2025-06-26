@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Fruit Store</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .role-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .role-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .role-card h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .role-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-owner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+        }
+        
+        .btn-admin {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-employee {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .logout-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .btn-logout {
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Staff Dashboard</h1>
+            <p>Welcome to the Fruit Store Management System</p>
+            <p>Please select your role to access the appropriate management interface</p>
+        </div>
+        
+        <div class="role-cards">
+            <a href="/owner/login" class="role-card">
+                <h3>🏢 Owner Portal</h3>
+                <p>Complete system management, analytics, and oversight of all operations</p>
+                <span class="btn btn-owner">Owner Access</span>
+            </a>
+            
+            <a href="/admin/login" class="role-card">
+                <h3>⚙️ Admin Portal</h3>
+                <p>Manage inventory, orders, customers, and day-to-day operations</p>
+                <span class="btn btn-admin">Admin Access</span>
+            </a>
+            
+            <a href="/employee/login" class="role-card">
+                <h3>👥 Employee Portal</h3>
+                <p>Process orders, update inventory, and handle customer service</p>
+                <span class="btn btn-employee">Employee Access</span>
+            </a>
+        </div>
+        
+        <div class="logout-section">
+            <p style="color: #666; margin-bottom: 15px;">
+                <strong>Note:</strong> Customer access is only available through the iOS mobile application
+            </p>
+        </div>
+    </div>
+</body>
+</html> 

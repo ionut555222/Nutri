@@ -1,0 +1,99 @@
+<div th:fragment="couponTable(coupons)" xmlns:th="http://www.thymeleaf.org">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Code</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Min Order</th>
+                    <th>Usage</th>
+                    <th>Expires</th>
+                    <th>Source</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="coupon : ${coupons}">
+                    <td>
+                        <strong th:text="${coupon.couponCode}">CODE123</strong>
+                        <br>
+                        <small class="text-muted" th:if="${coupon.customerId != null}">
+                            <i class="fas fa-user"></i> Customer-specific
+                        </small>
+                    </td>
+                    <td>
+                        <span class="badge bg-info" th:text="${coupon.couponType}">PERCENTAGE</span>
+                    </td>
+                    <td>
+                        <span th:if="${coupon.couponType.name() == 'PERCENTAGE'}" 
+                              th:text="${coupon.discountValue + '%'}">10%</span>
+                        <span th:if="${coupon.couponType.name() == 'FIXED_AMOUNT'}" 
+                              th:text="'$' + ${coupon.discountValue}">$5.00</span>
+                        <span th:if="${coupon.couponType.name() == 'FREE_SHIPPING'}">Free Shipping</span>
+                    </td>
+                    <td th:text="'$' + ${#numbers.formatDecimal(coupon.minimumOrderValue, 1, 2)}">$25.00</td>
+                    <td>
+                        <span th:text="${coupon.currentUses + '/' + coupon.maxUses}">0/1</span>
+                        <div class="progress mt-1" style="height: 4px;">
+                            <div class="progress-bar" 
+                                 th:style="'width: ' + ${coupon.currentUses * 100.0 / coupon.maxUses} + '%'"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span th:text="${#temporals.format(coupon.expirationDate, 'MMM dd, yyyy')}">Dec 31, 2024</span>
+                        <br>
+                        <small class="text-muted" th:text="${#temporals.format(coupon.expirationDate, 'HH:mm')}">23:59</small>
+                    </td>
+                    <td>
+                        <span class="badge" 
+                              th:class="${coupon.generatedBy.name() == 'AI_NEGOTIATION' ? 'bg-primary' : 'bg-secondary'}"
+                              th:text="${coupon.generatedBy}">MANUAL_ADMIN</span>
+                    </td>
+                    <td>
+                        <span th:if="${coupon.isActive and coupon.expirationDate.isAfter(T(java.time.LocalDateTime).now())}" 
+                              class="badge bg-success">Active</span>
+                        <span th:if="${!coupon.isActive}" class="badge bg-danger">Disabled</span>
+                        <span th:if="${coupon.isActive and coupon.expirationDate.isBefore(T(java.time.LocalDateTime).now())}" 
+                              class="badge bg-warning">Expired</span>
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a th:href="@{'/admin/coupons/' + ${coupon.id}}" class="btn btn-outline-primary">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a th:href="@{'/admin/coupons/edit/' + ${coupon.id}}" class="btn btn-outline-warning">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <button th:if="${coupon.isActive}" 
+                                    class="btn btn-outline-danger"
+                                    onclick="deactivateCoupon([[${coupon.id}]], '[[${coupon.couponCode}]]')">
+                                <i class="fas fa-ban"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(coupons)}">
+                    <td colspan="9" class="text-center text-muted py-4">
+                        <i class="fas fa-ticket-alt fa-2x mb-2"></i>
+                        <br>
+                        No coupons found
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function deactivateCoupon(id, code) {
+            if (confirm('Are you sure you want to deactivate coupon: ' + code + '?')) {
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/admin/coupons/' + id + '/deactivate';
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    </script>
+</div> 

@@ -1,61 +1,79 @@
-//
-//  ContentView.swift
-//  project 2
-//
-//  Created by Ionut Popescu on 26.03.2025.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @EnvironmentObject private var authManager: AuthManager
+    @StateObject private var cartManager = CartManager.shared
+    @State private var isInitialized = false
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        if !isInitialized {
+            // Show loading screen while checking authentication
+            VStack {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: DesignSystem.Colors.accent))
+                    .scaleEffect(1.5)
+                Text("Loading...")
+                    .foregroundColor(DesignSystem.Colors.textPrimary)
+                    .padding(.top)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(DesignSystem.Colors.background)
+            .onAppear {
+                // Initialize authentication state
+                Task {
+                    await authManager.checkAuthenticationStatus()
+                    isInitialized = true
+                }
+            }
+        } else if authManager.isAuthenticated {
+            TabView {
+                LuxuryHomeView()
+                    .environmentObject(cartManager)
+                    .tabItem {
+                        Label("Home", systemImage: "house")
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                
+                LuxuryProductsView()
+                    .environmentObject(cartManager)
+                    .tabItem {
+                        Label("Products", systemImage: "grid.circle")
                     }
+                
+                LuxuryCartView()
+                    .environmentObject(cartManager)
+                    .tabItem {
+                        Label("Cart", systemImage: "bag")
+                    }
+
+                ChatbotView()
+                    .tabItem {
+                        Label("Chat", systemImage: "message.circle")
+                    }
+
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.circle")
+                    }
+            }
+            .accentColor(DesignSystem.Colors.accent)
+            .background(DesignSystem.Colors.background)
+            .onAppear {
+                // Load cart data when app appears
+                Task {
+                    await cartManager.loadCart()
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+        } else {
+            LuxuryLoginView()
+                .environmentObject(authManager)
         }
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
-}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(AuthManager.shared)
+            .environmentObject(CartManager.shared)
+    }
+} 

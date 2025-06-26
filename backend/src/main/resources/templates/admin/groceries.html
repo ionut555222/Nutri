@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Groceries Admin</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; background-color: #f5f5f7; color: #1d1d1f; }
+        .container { padding: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 40px; }
+        .card { background-color: #ffffff; border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.5em; border-bottom: 1px solid #e5e5e5; padding-bottom: 10px; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e5e5e5; }
+        th { font-weight: 600; }
+        a { color: #007aff; text-decoration: none; }
+        .nav-link { display: inline-block; margin-top: 20px; }
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .btn-primary {
+            color: #fff;
+            background-color: #007aff;
+            border-color: #007aff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Groceries & Orders</h1>
+
+        <div class="card">
+            <h2>Manage Groceries</h2>
+            <div>
+                <a href="/admin/groceries/new" class="nav-button" style="float: right;">Add New Fruit</a>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Unit</th>
+                        <th>Stock</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="fruit : ${fruits}">
+                        <td th:text="${fruit.id}"></td>
+                        <td style="width: 80px; text-align: center;">
+                            <div th:if="${fruit.imageUrl != null and fruit.imageUrl != ''}" style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5; display: inline-block;">
+                                <img th:src="@{${fruit.imageUrl}}" alt="Product image" 
+                                     style="width: 100%; height: 100%; object-fit: cover;" />
+                            </div>
+                            <div th:unless="${fruit.imageUrl != null and fruit.imageUrl != ''}" 
+                                 style="width: 60px; height: 60px; border: 2px dashed #ccc; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: #999; font-size: 12px; text-align: center;">
+                                No<br/>Image
+                            </div>
+                        </td>
+                        <td th:text="${fruit.name}"></td>
+                        <td th:text="${fruit.description}" style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></td>
+                        <td th:text="${#numbers.formatCurrency(fruit.price)}"></td>
+                        <td th:text="${fruit.unit.getDisplayName()}"></td>
+                        <td th:text="${fruit.stock}"></td>
+                        <td th:text="${fruit.category.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/groceries/edit/{id}(id=${fruit.id})}" class="btn btn-primary btn-sm">Edit</a>
+                            <a th:href="@{/admin/groceries/delete/{id}(id=${fruit.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Pending Orders</h2>
+            <div style="float: right;">
+                <a href="/admin/orders/all" class="nav-link">View All Orders</a>
+                <a href="/admin/orders/fulfilled" class="nav-link">View Fulfilled Orders</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Total Amount</th>
+                        <th>Discount</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order : ${orders}">
+                        <td>
+                            <a th:href="@{'/admin/orders/' + ${order.id}}" style="font-weight: 600; color: #007aff;">
+                                #<span th:text="${order.id}"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <div th:text="${order.username}" style="font-weight: 500;"></div>
+                            <small th:text="${order.customerEmail}" style="color: #666; font-size: 0.85em;"></small>
+                        </td>
+                        <td>
+                            <div style="font-weight: 500;" th:text="${order.totalItems} + ' items'"></div>
+                            <div style="font-size: 0.85em; color: #666; max-width: 150px; overflow: hidden; text-overflow: ellipsis;">
+                                <span th:each="item, iterStat : ${order.orderItems}">
+                                    <span th:text="${item.quantity + 'x ' + item.fruitName}"></span>
+                                    <span th:if="${!iterStat.last && iterStat.index < 1}" th:text="', '"></span>
+                                    <span th:if="${iterStat.index >= 1 && !iterStat.last}">...</span>
+                                    <span th:if="${iterStat.index >= 1}" style="display: none;"></span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div th:if="${order.hasDiscount()}" style="text-decoration: line-through; color: #999; font-size: 0.85em;">
+                                $<span th:text="${#numbers.formatDecimal(order.originalAmount, 1, 2)}"></span>
+                            </div>
+                            <div style="font-weight: 600;" th:text="${'$' + #numbers.formatDecimal(order.totalAmount, 1, 2)}"></div>
+                        </td>
+                        <td>
+                            <div th:if="${order.hasDiscount()}" style="color: #28a745; font-size: 0.85em;">
+                                <div th:text="${order.couponCode}"></div>
+                                <div>-$<span th:text="${#numbers.formatDecimal(order.discountAmount, 1, 2)}"></span></div>
+                            </div>
+                            <div th:unless="${order.hasDiscount()}" style="color: #999; font-size: 0.85em;">
+                                None
+                            </div>
+                        </td>
+                        <td th:text="${#temporals.format(order.orderDate, 'MMM dd HH:mm')}"></td>
+                        <td>
+                            <a th:href="@{'/admin/orders/' + ${order.id}}" 
+                               style="background-color: #007aff; color: white; border: none; padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 0.8em; margin-right: 5px;">
+                                Details
+                            </a>
+                            <button th:attr="onclick='fulfillOrder(\'' + ${order.id} + '\')'" 
+                                    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8em;">
+                                Fulfill
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <a href="/admin" class="nav-link">Back to Admin Panel</a>
+    </div>
+    <script>
+        function fulfillOrder(orderId) {
+            if (confirm('Are you sure you want to mark this order as fulfilled?')) {
+                fetch('/admin/orders/' + orderId + '/fulfill', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                        // Include CSRF token if Spring Security CSRF is enabled
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Order marked as fulfilled!');
+                        window.location.reload();
+                    } else {
+                        alert('Failed to fulfill order.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred.');
+                });
+            }
+        }
+    </script>
+</body>
+</html> 
